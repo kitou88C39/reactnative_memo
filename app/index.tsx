@@ -1,9 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function InitialScreen() {
-  return <View>アプリ起動中・・ </View>;
+  return (
+    <View style={styles.container}>
+      <Text>アプリ起動中・・</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {
+    flex: 1,
+    backgroundColor: '#EFEFF4',
+    justifyContent: 'center'
+  }
 });
