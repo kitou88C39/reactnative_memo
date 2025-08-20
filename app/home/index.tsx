@@ -1,10 +1,11 @@
 //ホーム画面
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>ホーム画面</Text>
+      <Button title="ラベル追加" onPress={} />
+      <Button title="ラベル追加" onPress={} />
     </View>
   );
 }
