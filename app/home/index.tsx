@@ -1,5 +1,6 @@
 //ホーム画面
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   return (
@@ -8,6 +9,7 @@ export default function HomeScreen() {
       <Button title="全てのメモ" onPress={} />
       <View>
         <Button title="ラベル1" onPress={} />
+        <MaterialIcons name="edit" size={24} color={'gray'} onPress={} />
       </View>
     </View>
   );
