@@ -5,7 +5,10 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Button title="ラベル追加" onPress={} />
-      <Button title="ラベル追加" onPress={} />
+      <Button title="全てのメモ" onPress={} />
+      <View>
+        <Button title="ラベル1" onPress={} />
+      </View>
     </View>
   );
 }
