@@ -1,10 +1,10 @@
 //ホーム画面
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function InitialScreen() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>アプリ起動中・・</Text>
+      <Text style={styles.tittle}>ホーム画面</Text>
     </View>
   );
 }
