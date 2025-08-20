@@ -3,21 +3,22 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
+  const handleAllMemoPress = (memo: any) => {};
   return (
     <View style={styles.container}>
       <Button title="ラベル追加" onPress={} />
+
       <Button title="全てのメモ" onPress={} />
 
-      <View style={flexDirection:"row", alignItems:"center"}>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Button title="ラベル1" onPress={} />
-        <MaterialIcons name='edit' size={24} color={"gray"} onPress={} />
+        <MaterialIcons name="edit" size={24} color={'gray'} onPress={} />
       </View>
 
-      <View style={flexDirection:"row", alignItems:"center"}>
-        <Button title="ラベル1" onPress={} />
-        <MaterialIcons name='edit' size={24} color={"gray"} onPress={} />
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Button title="ラベル2" onPress={} />
+        <MaterialIcons name="edit" size={24} color={'gray'} onPress={} />
       </View>
-
     </View>
   );
 }
