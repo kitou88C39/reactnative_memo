@@ -7,7 +7,9 @@ export default function Layout() {
       {/*ホーム*/}
       <Stack.Screen name="home/index" options={{ headerTitle: 'ホーム' }} />
       {/*ラベル*/}
-      <Stack.Screen name="home/index" options={{ headerTitle: 'ラベル' }} />
+      <Stack.Screen name="labels" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
+      {/*メモ*/}
+      <Stack.Screen name="memo" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
     </Stack>
   );
 }
