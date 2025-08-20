@@ -1,6 +1,7 @@
 //ホーム画面
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 export default function HomeScreen() {
   const handleAllMemoPress = () => {};
@@ -18,13 +19,13 @@ export default function HomeScreen() {
       <Button title="全てのメモ" onPress={handleAllMemoPress} />
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Button title="ラベル1" onPress={handleEditLabelPress} />
-        <MaterialIcons name="edit" size={24} color={'gray'} onPress={} />
+        <Button title="ラベル1" onPress={handleLabelPress} />
+        <MaterialIcons name="edit" size={24} color={'gray'} onPress={handleEditLabelPress} />
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Button title="ラベル2" onPress={handleLabelPress} />
-        <MaterialIcons name="edit" size={24} color={'gray'} onPress={} />
+        <MaterialIcons name="edit" size={24} color={'gray'} onPress={handleEditLabelPress} />
       </View>
     </View>
   );
