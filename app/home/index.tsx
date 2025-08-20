@@ -3,7 +3,12 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
-  const handleAllMemoPress = (memo: any) => {};
+  const handleAllMemoPress = () => {};
+
+  const handleLabelPress = () => {};
+
+  const handleAddLabelPress = () => {};
+
   return (
     <View style={styles.container}>
       <Button title="ラベル追加" onPress={} />
