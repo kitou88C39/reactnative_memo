@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function InitialScreen() {
+  useEffect(() => {});
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>アプリ起動中・・</Text>
