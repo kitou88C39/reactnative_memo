@@ -10,6 +10,7 @@ export default function HomeScreen() {
 
   const handleLabelPress = (labelId: number) => {
     const params = { labelId: labelId };
+    router.push({ pathname: '/memos', params: params });
   };
 
   const handleAddLabelPress = () => {};
@@ -23,12 +24,12 @@ export default function HomeScreen() {
       <Button title="全てのメモ" onPress={handleAllMemoPress} />
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Button title="ラベル1" onPress={handleLabelPress} />
+        <Button title="ラベル1" onPress={() => handleLabelPress(1)} />
         <MaterialIcons name="edit" size={24} color={'gray'} onPress={handleEditLabelPress} />
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Button title="ラベル2" onPress={handleLabelPress} />
+        <Button title="ラベル2" onPress={() => handleLabelPress(2)} />
         <MaterialIcons name="edit" size={24} color={'gray'} onPress={handleEditLabelPress} />
       </View>
     </View>
