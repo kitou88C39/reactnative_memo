@@ -10,6 +10,7 @@ export default function Layout() {
       <Stack.Screen name="labels" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
       {/*メモ*/}
       <Stack.Screen name="memos/index" options={{ headerTitle: 'メモ' }} />
+      <Stack.Screen name="memos/create" options={{ headerTitle: '' }} />
     </Stack>
   );
 }
