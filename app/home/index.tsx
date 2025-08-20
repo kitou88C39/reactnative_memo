@@ -12,6 +12,12 @@ export default function HomeScreen() {
         <Button title="ラベル1" onPress={} />
         <MaterialIcons name='edit' size={24} color={"gray"} onPress={} />
       </View>
+
+      <View style={flexDirection:"row", alignItems:"center"}>
+        <Button title="ラベル1" onPress={} />
+        <MaterialIcons name='edit' size={24} color={"gray"} onPress={} />
+      </View>
+
     </View>
   );
 }
