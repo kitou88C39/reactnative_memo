@@ -11,6 +11,7 @@ export default function Layout() {
       {/*メモ*/}
       <Stack.Screen name="memos/index" options={{ headerTitle: 'メモ' }} />
       <Stack.Screen name="memos/create" options={{ headerTitle: '' }} />
+      <Stack.Screen name="memos/[id]" options={{ headerTitle: '' }} />
     </Stack>
   );
 }
