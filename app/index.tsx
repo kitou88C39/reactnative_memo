@@ -2,7 +2,10 @@ import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function InitialScreen() {
-  useEffect(() => {});
+  useEffect(() => {
+    const timer = setTimeout(() => {}, 2000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>アプリ起動中・・</Text>
