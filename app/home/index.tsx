@@ -4,9 +4,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
 export default function HomeScreen() {
-  const handleAllMemoPress = () => {};
+  const handleAllMemoPress = () => {
+    router.push({ pathname: '/memos' });
+  };
 
-  const handleLabelPress = () => {};
+  const handleLabelPress = (labelId: number) => {
+    const params = { labelId: labelId };
+  };
 
   const handleAddLabelPress = () => {};
 
