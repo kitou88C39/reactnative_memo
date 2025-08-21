@@ -9,16 +9,16 @@ export default function MemoListScreen() {
     router.push({ pathname: '/memos/create' });
   };
 
-  const handleCreatePress = () => {
-    router.push({ pathname: '/memos/create' });
+  const handleMemoPress = (memoId: String) => {
+    router.push({ pathname: `/memos/${memoId}` });
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
       <Button title="メモ作成" onPress={handleCreatePress} />
-      <Button title="メモ1" onPress={handleCreatePress} />
-      <Button title="メモ2" onPress={handleCreatePress} />
+      <Button title="メモ1" onPress={() => handleMemoPress('ABCD')} />
+      <Button title="メモ2" onPress={() => handleMemoPress('EFGH')} />
     </View>
   );
 }
