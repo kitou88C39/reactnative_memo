@@ -13,9 +13,13 @@ export default function HomeScreen() {
     router.push({ pathname: '/memos', params: params });
   };
 
-  const handleAddLabelPress = () => {};
+  const handleAddLabelPress = () => {
+    router.push({ pathname: '/labels/create' });
+  };
 
-  const handleEditLabelPress = () => {};
+  const handleEditLabelPress = (labelId: number) => {
+    router.push({ pathname: `/labels/${labelId}` });
+  };
 
   return (
     <View style={styles.container}>
@@ -25,12 +29,12 @@ export default function HomeScreen() {
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Button title="ラベル1" onPress={() => handleLabelPress(1)} />
-        <MaterialIcons name="edit" size={24} color={'gray'} onPress={handleEditLabelPress} />
+        <MaterialIcons name="edit" size={24} color={'gray'} onPress={() => handleEditLabelPress(1)} />
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Button title="ラベル2" onPress={() => handleLabelPress(2)} />
-        <MaterialIcons name="edit" size={24} color={'gray'} onPress={handleEditLabelPress} />
+        <MaterialIcons name="edit" size={24} color={'gray'} onPress={() => handleEditLabelPress(2)} />
       </View>
     </View>
   );
