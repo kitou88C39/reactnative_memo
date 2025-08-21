@@ -13,6 +13,8 @@ export default function MemoListScreen() {
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
       <Button title="メモ作成" onPress={handleCreatePress} />
+      <Button title="メモ1" onPress={handleCreatePress} />
+      <Button title="メモ2" onPress={handleCreatePress} />
     </View>
   );
 }
