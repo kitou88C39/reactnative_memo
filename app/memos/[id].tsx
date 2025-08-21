@@ -2,16 +2,16 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function LabelEditScreen() {
+export default function MemoEditScreen() {
   const { id } = useLocalSearchParams;
 
-  const handleEditPress = () => {
-    router.dismiss();
+  const handleSavePress = () => {
+    router.back();
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>ラベル修正: {id}</Text>
-      <Button title="修正" onPress={handleEditPress} />
+      <Text style={styles.tittle}>メモ修正: {id}</Text>
+      <Button title="保存" onPress={handleSavePress} />
     </View>
   );
 }
