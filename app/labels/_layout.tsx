@@ -17,9 +17,9 @@ export default function Layout() {
         }}
       />
       <Stack.Screen
-        name="create"
+        name="[id]"
         options={{
-          headerTitle: 'ラベル作成',
+          headerTitle: 'ラベル修正',
           headerLeft: () => (
             <TouchableOpacity onPress={() => router.dismiss()}>
               <Text>閉じる</Text>
