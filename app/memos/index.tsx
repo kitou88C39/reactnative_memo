@@ -1,17 +1,18 @@
 //メモ修正画面
-import { router, useLocalSearchParams } from 'expo-router';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { router, useLocalSearchParams, usePathname } from 'expo-router';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function MemoEditScreen() {
-  const { id } = useLocalSearchParams;
+export default function MemoListScreen() {
+  const { labelId } = useLocalSearchParams;
 
-  const handleSavePress = () => {
-    router.back();
+  const handleCreatePress = () => {
+    router.push({ pathname: '/memos/create' });
   };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>メモ修正: {id}</Text>
-      <Button title="保存" onPress={handleSavePress} />
+      <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
+      <Button title="メモ作成" onPress={handleCreatePress} />
     </View>
   );
 }
