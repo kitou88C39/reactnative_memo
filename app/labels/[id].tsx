@@ -1,15 +1,17 @@
-//ラベル画面作成
-import { router } from 'expo-router';
+//ラベル修正画面
+import { router, useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function LabelCreateScreen() {
-  const handleCreatePress = () => {
+export default function LabelEditScreen() {
+  const { id } = useLocalSearchParams;
+
+  const handleEditPress = () => {
     router.dismiss();
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>ラベル作成</Text>
-      <Button title="作成" onPress={handleCreatePress} />
+      <Text style={styles.tittle}>ラベル修正: {id}</Text>
+      <Button title="修正" onPress={handleEditPress} />
     </View>
   );
 }
