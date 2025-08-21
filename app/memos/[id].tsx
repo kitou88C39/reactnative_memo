@@ -1,4 +1,4 @@
-//ラベル修正画面
+//メモ修正画面
 import { router, useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
