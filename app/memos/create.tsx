@@ -2,13 +2,13 @@
 import { router } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function LabelCreateScreen() {
+export default function MemoCreateScreen() {
   const handleCreatePress = () => {
-    router.dismiss();
+    router.back();
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>ラベル作成</Text>
+      <Text style={styles.tittle}>メモ作成</Text>
       <Button title="作成" onPress={handleCreatePress} />
     </View>
   );
