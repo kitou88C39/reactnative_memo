@@ -1,5 +1,12 @@
 import { Stack } from 'expo-router';
+import { Text, TouchableOpacity } from 'react-native';
 
 export default function Layout() {
-  return <Stack screenOptions={{ headerTintColor: '#0000000', headerStyle: { backgroundColor: '#F9F9F9' } }}></Stack>;
-}
+  return (
+    <Stack screenOptions={{ headerShown: true }}>
+      <Stack.Screen name="create" options={{ headerTitle: 'ラベル作成', headerLeft: () =>
+        <TouchableOpacity>
+          <Text></Text>
+      </TouchableOpacity>
+  )}}
+</Stack>
