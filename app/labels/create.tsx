@@ -1,6 +1,5 @@
 //ラベル画面作成
 import { router } from 'expo-router';
-import { useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function LabelCreateScreen() {
@@ -10,7 +9,7 @@ export default function LabelCreateScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>ラベル作成</Text>
-      <Button title="作成" onPress={} />
+      <Button title="作成" onPress={handleCreatePress} />
     </View>
   );
 }
