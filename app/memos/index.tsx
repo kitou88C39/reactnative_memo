@@ -9,6 +9,10 @@ export default function MemoListScreen() {
     router.push({ pathname: '/memos/create' });
   };
 
+  const handleCreatePress = () => {
+    router.push({ pathname: '/memos/create' });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
