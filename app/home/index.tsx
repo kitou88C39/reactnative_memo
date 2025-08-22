@@ -10,7 +10,7 @@ export default function HomeScreen() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <MaterialIcons name="new-label" size={24} color="black" />;
+        return <MaterialIcons name="new-label" size={24} color="black" onPress={handleAddLabelPress} />;
       }
     });
   }, []);
@@ -34,8 +34,6 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Button title="ラベル追加" onPress={handleAddLabelPress} />
-
       <Button title="全てのメモ" onPress={handleAllMemoPress} />
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
