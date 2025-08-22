@@ -3,7 +3,15 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function MemoEditScreen() {
-  const { id } = useLocalSearchParams;
+  const { id } = useLocalSearchParams();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Button title="作成" onPress={handleCreatePress} />;
+      }
+    });
+  }, []);
 
   const handleSavePress = () => {
     router.back();
