@@ -2,7 +2,7 @@
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { useEffect } from 'react';
-import Feather from '@vector-icons/Feather';
+import { Feather } from '@expo/vector-icons';
 
 // アプリ起動時の画面
 

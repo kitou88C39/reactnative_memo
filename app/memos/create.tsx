@@ -1,9 +1,19 @@
 // メモ作成画面
 import { router, useNavigation } from 'expo-router';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
 
 export default function MemoCreateScreen() {
   const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Feather name="edit" size={24} color="black" onPress={handleCreatePress} />;
+      }
+    });
+  }, []);
+
   const handleCreatePress = () => {
     router.back();
   };
