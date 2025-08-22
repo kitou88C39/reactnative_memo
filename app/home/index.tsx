@@ -1,7 +1,8 @@
 //ホーム画面
-import { Button, StyleSheet, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { router, useNavigation } from 'expo-router';
+import { Button, StyleSheet, View } from 'react-native';
+import { useEffect } from 'react';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
