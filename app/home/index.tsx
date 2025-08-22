@@ -1,9 +1,11 @@
 //ホーム画面
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
+
   const handleAllMemoPress = () => {
     router.push({ pathname: '/memos' });
   };

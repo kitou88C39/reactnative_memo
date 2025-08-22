@@ -2,6 +2,8 @@
 import { router, useLocalSearchParams, usePathname } from 'expo-router';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
+// アプリ起動時の画面
+
 export default function MemoListScreen() {
   const { labelId } = useLocalSearchParams;
 
