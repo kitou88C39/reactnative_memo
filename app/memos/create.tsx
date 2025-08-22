@@ -9,7 +9,7 @@ export default function MemoCreateScreen() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Feather name="edit" size={24} color="black" onPress={handleCreatePress} />;
+        return <Button title="作成" onPress={handleCreatePress} />;
       }
     });
   }, []);
@@ -20,7 +20,6 @@ export default function MemoCreateScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>メモ作成</Text>
-      <Button title="作成" onPress={handleCreatePress} />
     </View>
   );
 }
