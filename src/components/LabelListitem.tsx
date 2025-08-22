@@ -13,7 +13,7 @@ const LabelListItem: React.FC<LabelListItemProps> = props => {
 
   return (
     <View style={styles.container}>
-      <ListItem>
+      <ListItem bottomDivider style={styles.ListItem}>
         <ListItem.Content>
           <ListItem.Title style={styles.title}>{name}</ListItem.Title>
         </ListItem.Content>
@@ -27,7 +27,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
+  ListItem: {
+    flex: 1
+  },
   title: {
     fontSize: 18
   }
 });
+
+export { LabelListItem };
