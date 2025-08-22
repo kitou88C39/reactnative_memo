@@ -1,8 +1,9 @@
 // メモ作成画面
-import { router } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function MemoCreateScreen() {
+  const navigation = useNavigation();
   const handleCreatePress = () => {
     router.back();
   };
