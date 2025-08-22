@@ -21,3 +21,9 @@ const LabelListItem: React.FC<LabelListItemProps> = props => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row'
+  }
+});
