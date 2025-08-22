@@ -1,12 +1,21 @@
 //メモ修正画面
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
 
 // アプリ起動時の画面
 
 export default function MemoListScreen() {
   const navigation = useNavigation();
   const { labelId } = useLocalSearchParams();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <MaterialIcons name="new-label" size={24} color="black" onPress={handleAddLabelPress} />;
+      }
+    });
+  }, []);
 
   const handleCreatePress = () => {
     router.push({ pathname: '/memos/create' });
