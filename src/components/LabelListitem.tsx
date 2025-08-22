@@ -1,3 +1,6 @@
+import { StyleSheet } from 'react-native';
+import { ListItem } from '@rneui/themed';
+
 type LabelListItemProps = {
   color: string;
   name: string;
@@ -5,4 +8,6 @@ type LabelListItemProps = {
   onEditPress: () => void;
 };
 
-const LabelListItem: React.FC<> = props => {};
+const LabelListItem: React.FC<LabelListItemProps> = props => {
+  const { color, name, onPress, onEditPress } = props;
+};
