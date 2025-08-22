@@ -13,7 +13,7 @@ export default function MemoListScreen() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Feather name="edit" size={24} color="black" onPress={handleAddLabelPress} />;
+        return <Feather name="edit" size={24} color="black" onPress={handleCreatePress} />;
       }
     });
   }, []);
@@ -29,7 +29,6 @@ export default function MemoListScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
-      <Button title="メモ作成" onPress={handleCreatePress} />
       <Button title="メモ1" onPress={() => handleMemoPress('ABCD')} />
       <Button title="メモ2" onPress={() => handleMemoPress('EFGH')} />
     </View>
