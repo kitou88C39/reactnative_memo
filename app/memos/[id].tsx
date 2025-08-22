@@ -10,7 +10,7 @@ export default function MemoEditScreen() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="作成" onPress={handleCreatePress} />;
+        return <Button title="保存" onPress={handleSavePress} />;
       }
     });
   }, []);
@@ -21,7 +21,6 @@ export default function MemoEditScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>メモ修正: {id}</Text>
-      <Button title="保存" onPress={handleSavePress} />
     </View>
   );
 }
