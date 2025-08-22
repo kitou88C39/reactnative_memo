@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ListItem } from '@rneui/themed';
 
 type LabelListItemProps = {
@@ -10,4 +10,14 @@ type LabelListItemProps = {
 
 const LabelListItem: React.FC<LabelListItemProps> = props => {
   const { color, name, onPress, onEditPress } = props;
+
+  return (
+    <View>
+      <ListItem>
+        <ListItem.Content>
+          <ListItem.Title>{name}</ListItem.Title>
+        </ListItem.Content>
+      </ListItem>
+    </View>
+  );
 };
