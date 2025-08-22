@@ -12,10 +12,10 @@ const LabelListItem: React.FC<LabelListItemProps> = props => {
   const { color, name, onPress, onEditPress } = props;
 
   return (
-    <View>
+    <View style={styles.container}>
       <ListItem>
         <ListItem.Content>
-          <ListItem.Title>{name}</ListItem.Title>
+          <ListItem.Title style={styles.title}>{name}</ListItem.Title>
         </ListItem.Content>
       </ListItem>
     </View>
@@ -24,6 +24,10 @@ const LabelListItem: React.FC<LabelListItemProps> = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  title: {
+    fontSize: 18
   }
 });
