@@ -1,8 +1,10 @@
 //メモ修正画面
-import { router, useLocalSearchParams } from 'expo-router';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { router, useLocalSearchParams, useNavigation } from 'expo-router';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
 
 export default function MemoEditScreen() {
+  const navigation = useNavigation();
   const { id } = useLocalSearchParams();
 
   useEffect(() => {
