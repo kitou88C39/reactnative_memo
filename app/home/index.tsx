@@ -1,8 +1,9 @@
 //ホーム画面
 import { MaterialIcons } from '@expo/vector-icons';
 import { router, useNavigation } from 'expo-router';
-import { Button, StyleSheet, View } from 'react-native';
 import { useEffect } from 'react';
+import { Button, StyleSheet, View } from 'react-native';
+import { LabelListItem } from '../../src/components/LabelListitem';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -35,6 +36,8 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Button title="全てのメモ" onPress={handleAllMemoPress} />
+
+      <LabelListItem color="red" name="ラベル1" onPress={() => handleLabelPress(1)} onEditPress={() => handleEditLabelPress(1)} />
 
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Button title="ラベル1" onPress={() => handleLabelPress(1)} />
