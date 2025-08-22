@@ -7,6 +7,14 @@ import { useEffect } from 'react';
 export default function HomeScreen() {
   const navigation = useNavigation();
 
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <MaterialIcons name="new-label" size={24} color="black" />;
+      }
+    });
+  }, []);
+
   const handleAllMemoPress = () => {
     router.push({ pathname: '/memos' });
   };
