@@ -2,6 +2,7 @@
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { useEffect } from 'react';
+import Feather from '@vector-icons/Feather';
 
 // アプリ起動時の画面
 
@@ -12,7 +13,7 @@ export default function MemoListScreen() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <MaterialIcons name="new-label" size={24} color="black" onPress={handleAddLabelPress} />;
+        return <Feather name="edit" size={24} color="black" onPress={handleAddLabelPress} />;
       }
     });
   }, []);
