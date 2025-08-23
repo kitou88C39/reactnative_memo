@@ -45,7 +45,10 @@ export default function HomeScreen() {
       {/* <Button title="全てのメモ" onPress={handleAllMemoPress} /> */}
 
       <ListItem bottomDivider onPress={handleAllMemoPress}>
-        <ListItem.Content></ListItem.Content>
+        <ListItem.Content>
+          <ListItem.Title>全てのメモ</ListItem.Title>
+        </ListItem.Content>
+        <ListItem.Chevron />
       </ListItem>
 
       {LABEL_DATA.map(item => (
@@ -63,9 +66,7 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#EFEFF4',
-    justifyContent: 'center'
+    flex: 1
   },
   tittle: {
     fontSize: 20,
