@@ -13,9 +13,23 @@ const MemoListItem: React.FC<MemoListItemProps> = props => {
   const { content, name, onPress, onLongPress, onDeletePress, label } = props;
 
   return (
-    <ListItem.Content>
-      <ListItem.Title>{name}</ListItem.Title>
-      <ListItem.Subtitle>{content}</ListItem.Subtitle>
-    </ListItem.Content>
+    <ListItem.Swipeable
+      rightContent={reset => (
+        <Button
+          title="削除"
+          onPress={() => {
+            if (onDeletePress) {
+              onDeletePress();
+            }
+            reset();
+          }}
+        />
+      )}
+    >
+      <ListItem.Content>
+        <ListItem.Title>{name}</ListItem.Title>
+        <ListItem.Subtitle>{content}</ListItem.Subtitle>
+      </ListItem.Content>
+    </ListItem.Swipeable>
   );
 };
