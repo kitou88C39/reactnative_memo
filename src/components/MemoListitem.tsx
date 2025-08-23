@@ -23,6 +23,8 @@ const MemoListItem: React.FC<MemoListItemProps> = props => {
             }
             reset();
           }}
+          icon={{ name: 'delete', color: 'white' }}
+          buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
         />
       )}
     >
@@ -30,6 +32,8 @@ const MemoListItem: React.FC<MemoListItemProps> = props => {
         <ListItem.Title>{name}</ListItem.Title>
         <ListItem.Subtitle>{content}</ListItem.Subtitle>
       </ListItem.Content>
+      <ListItem.Chevron />
     </ListItem.Swipeable>
   );
 };
+export { MemoListItem };
