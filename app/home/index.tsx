@@ -4,6 +4,7 @@ import { router, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
+import { ListItem } from '@rneui/themed';
 
 const LABEL_DATA = [
   { id: 1, name: 'プログラミング', color: 'blue' },
@@ -41,7 +42,11 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Button title="全てのメモ" onPress={handleAllMemoPress} />
+      {/* <Button title="全てのメモ" onPress={handleAllMemoPress} /> */}
+
+      <ListItem bottomDivider onPress={handleAllMemoPress}>
+        <ListItem.Content></ListItem.Content>
+      </ListItem>
 
       {LABEL_DATA.map(item => (
         <LabelListItem
