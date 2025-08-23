@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { ListItem } from '@rneui/themed';
-import { MaterialCommunityIcon } from 'expo/vector-icons';
+import { MaterialCommunityIcons } from 'expo/vector-icons';
 
 type LabelListItemProps = {
   color: string;
@@ -15,7 +15,7 @@ const LabelListItem: React.FC<LabelListItemProps> = props => {
   return (
     <View style={styles.container}>
       <ListItem bottomDivider style={styles.ListItem}>
-        <MaterialCommunityIcon name="label" size={26} color={color} style={styles.labelIcon} />
+        <MaterialCommunityIcons name="label" size={26} color={color} style={styles.labelIcon} />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>{name}</ListItem.Title>
         </ListItem.Content>
