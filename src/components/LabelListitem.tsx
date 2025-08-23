@@ -1,6 +1,7 @@
-import { StyleSheet, View } from 'react-native';
-import { ListItem } from '@rneui/themed';
 import { MaterialCommunityIcons } from 'expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
+import { ListItem } from '@rneui/themed';
+import { StyleSheet, View } from 'react-native';
 
 type LabelListItemProps = {
   color: string;
@@ -14,11 +15,12 @@ const LabelListItem: React.FC<LabelListItemProps> = props => {
 
   return (
     <View style={styles.container}>
-      <ListItem bottomDivider style={styles.ListItem}>
+      <ListItem bottomDivider style={styles.ListItem} onPress={onPress}>
         <MaterialCommunityIcons name="label" size={26} color={color} style={styles.labelIcon} />
         <ListItem.Content>
           <ListItem.Title style={styles.title}>{name}</ListItem.Title>
         </ListItem.Content>
+        <Foundation name="pencil" size={26} color={'#818181'} style={styles.editIcon} onPress={onEditPress} />
       </ListItem>
     </View>
   );
@@ -36,6 +38,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18
+  },
+  editIcon: {
+    marginRight: 12
   }
 });
 
