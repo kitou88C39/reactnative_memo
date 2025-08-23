@@ -7,8 +7,8 @@ import { LabelListItem } from '../../src/components/LabelListitem';
 
 const LABEL_DATA = [
   { id: 1, name: 'プログラミング', color: 'blue' },
-  { id: 1, name: 'プログラミング', color: 'blue' },
-  { id: 1, name: 'プログラミング', color: 'blue' }
+  { id: 2, name: 'パスワード', color: 'green' },
+  { id: 3, name: '料理', color: 'orange' }
 ];
 
 export default function HomeScreen() {
@@ -44,16 +44,6 @@ export default function HomeScreen() {
       <Button title="全てのメモ" onPress={handleAllMemoPress} />
 
       <LabelListItem color="red" name="ラベル1" onPress={() => handleLabelPress(1)} onEditPress={() => handleEditLabelPress(1)} />
-
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Button title="ラベル1" onPress={() => handleLabelPress(1)} />
-        <MaterialIcons name="edit" size={24} color={'gray'} onPress={() => handleEditLabelPress(1)} />
-      </View>
-
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Button title="ラベル2" onPress={() => handleLabelPress(2)} />
-        <MaterialIcons name="edit" size={24} color={'gray'} onPress={() => handleEditLabelPress(2)} />
-      </View>
     </View>
   );
 }
