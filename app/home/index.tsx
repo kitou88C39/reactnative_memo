@@ -50,7 +50,7 @@ export default function HomeScreen() {
           <ListItem.Chevron />
         </ListItem>
 
-        <Text></Text>
+        <Text style={styles.sectionText}>ラベル</Text>
 
         {LABEL_DATA.map(item => (
           <LabelListItem
@@ -77,9 +77,5 @@ const styles = StyleSheet.create({
     marginLeft: 14,
     fontSize: 14,
     color: '707070'
-  },
-  tittle: {
-    fontSize: 20,
-    fontWeight: 'bold'
   }
 });
