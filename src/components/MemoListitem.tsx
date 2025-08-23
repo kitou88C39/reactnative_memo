@@ -30,8 +30,10 @@ const MemoListItem: React.FC<MemoListItemProps> = props => {
       )}
     >
       <ListItem.Content>
-        <ListItem.Title>{name}</ListItem.Title>
-        <ListItem.Subtitle>{content}</ListItem.Subtitle>
+        <ListItem.Title style={styles.title}>{name}</ListItem.Title>
+        <ListItem.Subtitle style={styles.subTitle} numberOfLines={4}>
+          {content}
+        </ListItem.Subtitle>
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem.Swipeable>
