@@ -5,6 +5,12 @@ import { useEffect } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
 
+const LABEL_DATA = [
+  { id: 1, name: 'プログラミング', color: 'blue' },
+  { id: 1, name: 'プログラミング', color: 'blue' },
+  { id: 1, name: 'プログラミング', color: 'blue' }
+];
+
 export default function HomeScreen() {
   const navigation = useNavigation();
 
