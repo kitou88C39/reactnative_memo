@@ -43,7 +43,15 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Button title="全てのメモ" onPress={handleAllMemoPress} />
 
-      <LabelListItem color="red" name="ラベル1" onPress={() => handleLabelPress(1)} onEditPress={() => handleEditLabelPress(1)} />
+      {LABEL_DATA.map(item => (
+        <LabelListItem
+          key={item.id}
+          color={item.color}
+          name={item.name}
+          onPress={() => handleLabelPress(item.id)}
+          onEditPress={() => handleEditLabelPress(item.id)}
+        />
+      ))}
     </View>
   );
 }
