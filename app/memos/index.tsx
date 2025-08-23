@@ -1,8 +1,9 @@
 //メモ修正画面
-import { router, useLocalSearchParams, useNavigation } from 'expo-router';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
+import { router, useLocalSearchParams, useNavigation } from 'expo-router';
+import { useEffect } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { MemoListItem } from '../../src/components/MemoListitem';
 
 // アプリ起動時の画面
 
@@ -29,6 +30,15 @@ export default function MemoListScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
+      <MemoListItem
+        name="メモ1"
+        content="メモ1の内容"
+        onPress={() => handleMemoPress('ABCD')}
+        onLongPress={() => handleMemoPress('ABCD')}
+        onDeletePress={() => handleMemoPress('ABCD')}
+        label={undefined}
+      />
+
       <Button title="メモ1" onPress={() => handleMemoPress('ABCD')} />
       <Button title="メモ2" onPress={() => handleMemoPress('EFGH')} />
     </View>
@@ -38,8 +48,7 @@ export default function MemoListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EFEFF4',
-    justifyContent: 'center'
+    backgroundColor: '#EFEFF4'
   },
   tittle: {
     fontSize: 20,
