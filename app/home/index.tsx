@@ -2,7 +2,7 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { router, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
 import { ListItem } from '@rneui/themed';
 
@@ -42,24 +42,24 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      {/* <Button title="全てのメモ" onPress={handleAllMemoPress} /> */}
+      <ScrollView>
+        <ListItem bottomDivider onPress={handleAllMemoPress}>
+          <ListItem.Content>
+            <ListItem.Title>全てのメモ</ListItem.Title>
+          </ListItem.Content>
+          <ListItem.Chevron />
+        </ListItem>
 
-      <ListItem bottomDivider onPress={handleAllMemoPress}>
-        <ListItem.Content>
-          <ListItem.Title>全てのメモ</ListItem.Title>
-        </ListItem.Content>
-        <ListItem.Chevron />
-      </ListItem>
-
-      {LABEL_DATA.map(item => (
-        <LabelListItem
-          key={item.id}
-          color={item.color}
-          name={item.name}
-          onPress={() => handleLabelPress(item.id)}
-          onEditPress={() => handleEditLabelPress(item.id)}
-        />
-      ))}
+        {LABEL_DATA.map(item => (
+          <LabelListItem
+            key={item.id}
+            color={item.color}
+            name={item.name}
+            onPress={() => handleLabelPress(item.id)}
+            onEditPress={() => handleEditLabelPress(item.id)}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }
