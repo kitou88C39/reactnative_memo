@@ -2,7 +2,7 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { router, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
 import { ListItem } from '@rneui/themed';
 
@@ -42,13 +42,15 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingVertical: 40 }}>
         <ListItem bottomDivider onPress={handleAllMemoPress}>
           <ListItem.Content>
             <ListItem.Title>全てのメモ</ListItem.Title>
           </ListItem.Content>
           <ListItem.Chevron />
         </ListItem>
+
+        <Text></Text>
 
         {LABEL_DATA.map(item => (
           <LabelListItem
@@ -66,7 +68,15 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'EFEFF4'
+  },
+  sectionText: {
+    marginTop: 30,
+    marginBottom: 10,
+    marginLeft: 14,
+    fontSize: 14,
+    color: '707070'
   },
   tittle: {
     fontSize: 20,
