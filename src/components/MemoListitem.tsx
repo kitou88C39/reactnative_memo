@@ -1,4 +1,5 @@
 import { ListItem, Button } from '@rneui/themed';
+import { StyleSheet } from 'react-native';
 
 type MemoListItemProps = {
   name: string;
@@ -36,4 +37,18 @@ const MemoListItem: React.FC<MemoListItemProps> = props => {
     </ListItem.Swipeable>
   );
 };
+const styles = StyleSheet.create({
+  title: {
+    color: '#4A5054',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  subTitle: {
+    color: '#95A2AC',
+    fontSize: 15,
+    padding: 4,
+    maxHeight: 100
+  }
+});
+
 export { MemoListItem };
