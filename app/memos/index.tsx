@@ -5,8 +5,13 @@ import { useEffect } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { MemoListItem } from '../../src/components/MemoListitem';
 
-// アプリ起動時の画面
+const MEMO_DATA = [
+  { id: 1, name: 'プログラミング', color: 'blue' },
+  { id: 2, name: 'パスワード', color: 'green' },
+  { id: 3, name: '料理', color: 'orange' }
+];
 
+// アプリ起動時の画面
 export default function MemoListScreen() {
   const navigation = useNavigation();
   const { labelId } = useLocalSearchParams();
