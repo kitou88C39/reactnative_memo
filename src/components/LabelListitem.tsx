@@ -1,4 +1,4 @@
-import { MaterialCommunityIcons } from 'expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 import { ListItem } from '@rneui/themed';
 import { StyleSheet, View } from 'react-native';
