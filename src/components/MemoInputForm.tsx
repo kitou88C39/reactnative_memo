@@ -13,7 +13,11 @@ const MemoInputForm: React.FC<MemoInputFormProps> = props => {
 
   return (
     <View style={{ flex: 1, paddingBottom: 100 }}>
-      <Textarea borderWidth={0} minWidth={'$full'} minHeight={'$full'}></Textarea>
+      <Textarea borderWidth={0} minWidth={'$full'} minHeight={'$full'}>
+        <Input borderWidth={0} minWidth={'$full'} marginTop={'$4'} marginBottom={'$1'} paddingHorizontal={'$1'}>
+          <InputField />
+        </Input>
+      </Textarea>
     </View>
   );
 };
