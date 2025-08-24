@@ -15,6 +15,8 @@ const MemoListItem: React.FC<MemoListItemProps> = props => {
 
   return (
     <ListItem.Swipeable
+      onPress={onPress}
+      onLongPress={() => onLongPress?.()}
       rightContent={reset => (
         <Button
           title="削除"
