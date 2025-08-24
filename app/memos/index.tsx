@@ -6,9 +6,9 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { MemoListItem } from '../../src/components/MemoListitem';
 
 const MEMO_DATA = [
-  { id: 1, name: 'プログラミング', color: 'blue' },
-  { id: 2, name: 'パスワード', color: 'green' },
-  { id: 3, name: '料理', color: 'orange' }
+  { id: 'ABCD', name: 'useStateについて', content: 'blue', label: { color: 'blue', name: 'プログラミング' } },
+  { id: 'EFGH', name: 'アカウント', content: 'メールアドレス' },
+  { id: 'IJKL', name: 'オムライス', content: '卵' }
 ];
 
 // アプリ起動時の画面
