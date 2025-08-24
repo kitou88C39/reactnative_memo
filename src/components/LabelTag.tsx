@@ -1,6 +1,5 @@
 import { Text, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Foundation } from '@expo/vector-icons';
 
 type LabelTagProps = {
   color: string;
@@ -9,8 +8,9 @@ type LabelTagProps = {
 
 const LabelTag: React.FC<LabelTagProps> = ({ color, name }) => {
   return (
-    <View style={[styles.container, { backgroundColor: color }]}>
-      <Text style={styles.name}>{name}</Text>
+    <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 2 }}>
+      <MaterialCommunityIcons name="label" size={24} color={color} />
+      <Text style={{ marginLeft: 5 }}>{name}</Text>
     </View>
   );
 };
