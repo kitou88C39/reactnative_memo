@@ -36,18 +36,21 @@ export default function MemoListScreen() {
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
 
-    <FlatList
-      data={MEMO_DATA}
-      renderItem={({ item }) => (
-      <MemoListItem
-        name="メモ1"
-        content="メモ1の内容"
-        onPress={() => handleMemoPress('ABCD')}
-        onLongPress={() => handleMemoPress('ABCD')}
-        onDeletePress={() => handleMemoPress('ABCD')}
-        label={undefined}
+      <FlatList
+        contentContainerStyle={{ paddingBottom: 100 }}
+        data={MEMO_DATA}
+        renderItem={({ item }) => (
+          <MemoListItem
+            name={item.name}
+            content={item.content}
+            onPress={() => handleMemoPress(item.id)}
+            onLongPress={() => handleMemoPress('ABCD')}
+            onDeletePress={() => handleMemoPress('ABCD')}
+            label={undefined}
+          />
+        )}
+        keyExtractor={item => item.id}
       />
-  )}
 
       <Button title="メモ1" onPress={() => handleMemoPress('ABCD')} />
       <Button title="メモ2" onPress={() => handleMemoPress('EFGH')} />
