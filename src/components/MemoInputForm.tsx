@@ -17,7 +17,14 @@ const MemoInputForm: React.FC<MemoInputFormProps> = props => {
         <Input borderWidth={0} minWidth={'$full'} marginTop={'$4'} marginBottom={'$1'} paddingHorizontal={'$1'}>
           <InputField defaultValue={title} onChangeText={onTitleChange} fontSize={'$2xl'} fontWeight={'$bold'} placeholder="タイトル" />
         </Input>
-        <TextareaInput scrollEnabled={true} paddingHorizontal={'$5'} defaultValue={content} />
+        <TextareaInput
+          scrollEnabled={true}
+          paddingHorizontal={'$5'}
+          defaultValue={content}
+          onChangeText={onContentChange}
+          fontSize={'$md'}
+          placeholder="メモを入力してください"
+        />
       </Textarea>
     </View>
   );
