@@ -2,7 +2,7 @@
 import { Feather } from '@expo/vector-icons';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, FlatList } from 'react-native';
 import { MemoListItem } from '../../src/components/MemoListitem';
 
 const MEMO_DATA = [
@@ -35,6 +35,10 @@ export default function MemoListScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
+
+    <FlatList
+      data={MEMO_DATA}
+      renderItem={({ item }) => (
       <MemoListItem
         name="メモ1"
         content="メモ1の内容"
@@ -43,6 +47,7 @@ export default function MemoListScreen() {
         onDeletePress={() => handleMemoPress('ABCD')}
         label={undefined}
       />
+  )}
 
       <Button title="メモ1" onPress={() => handleMemoPress('ABCD')} />
       <Button title="メモ2" onPress={() => handleMemoPress('EFGH')} />
