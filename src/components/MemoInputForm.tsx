@@ -1,3 +1,5 @@
+import { StyleSheet, Text, View } from 'react-native';
+
 type MemoInputFormProps = {
   title: string;
   content: string;
