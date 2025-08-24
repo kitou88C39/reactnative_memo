@@ -32,6 +32,10 @@ export default function MemoListScreen() {
     router.push({ pathname: `/memos/${memoId}` });
   };
 
+  const handleMemoLongPress = (memoId: String) => {
+    console.log({"メモが長押しされました" ,memoId });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
