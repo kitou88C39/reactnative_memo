@@ -4,6 +4,8 @@ import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
 import { Button, StyleSheet, Text, View, FlatList } from 'react-native';
 import { MemoListItem } from '../../src/components/MemoListitem';
+import { LabelTag } from '../../src/components/LabelTag';
+
 
 const MEMO_DATA = [
   { id: 'ABCD', name: 'useStateについて', content: 'blue', label: { color: 'blue', name: 'プログラミング' } },
@@ -45,6 +47,13 @@ export default function MemoListScreen() {
       <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
 
       <FlatList
+      ListHeaderComponent={
+        labelId ? (
+         <View>
+          <LabelTag color={MEMO_DATA[0].label.color} name={MEMO_DATA[0].label.name} />
+         </View>
+        )
+      }
         contentContainerStyle={{ paddingBottom: 100 }}
         data={MEMO_DATA}
         renderItem={({ item }) => (
