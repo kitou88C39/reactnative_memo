@@ -1,11 +1,10 @@
 type MemoInputFormProps = {
-  name: string;
+  title: string;
   content: string;
-  onPress: () => void;
-  onLongPress?: () => void;
-  onDeletePress?: () => void;
-  label?: { color: string; name: string };
+  onTitleChange: (text: string) => void;
+  onContentChange: (text: string) => void;
 };
 
 const MemoInputForm: React.FC<MemoInputFormProps> = props => {
-  const { content, name, onPress, onLongPress, onDeletePress, label } = props;
+  const { content, title, onTitleChange, onContentChange } = props;
+};
