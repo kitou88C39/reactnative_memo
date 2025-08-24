@@ -54,7 +54,7 @@ export default function MemoListScreen() {
             onPress={() => handleMemoPress(item.id)}
             onLongPress={() => handleMemoLongPress(item.id)}
             onDeletePress={() => handleMemoDeletePress(item.id)}
-            label={undefined}
+            label={item.label}
           />
         )}
         keyExtractor={item => item.id}
