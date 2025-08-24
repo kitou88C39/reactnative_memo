@@ -43,8 +43,6 @@ export default function MemoListScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>{labelId ? `ラベルID: ${labelId}` : '全てのメモ'}</Text>
-
       <FlatList
         ListHeaderComponent={
           labelId ? (
@@ -69,9 +67,6 @@ export default function MemoListScreen() {
         )}
         keyExtractor={item => item.id}
       />
-
-      <Button title="メモ1" onPress={() => handleMemoPress('ABCD')} />
-      <Button title="メモ2" onPress={() => handleMemoPress('EFGH')} />
     </View>
   );
 }
