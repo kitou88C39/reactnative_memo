@@ -36,7 +36,7 @@ export default function MemoListScreen() {
     console.log('メモが長押しされました', memoId);
   };
 
-  const handleMemoDePress = (memoId: String) => {
+  const handleMemoDeletePress = (memoId: String) => {
     console.log('メモが削除されました', memoId);
   };
 
@@ -52,8 +52,8 @@ export default function MemoListScreen() {
             name={item.name}
             content={item.content}
             onPress={() => handleMemoPress(item.id)}
-            onLongPress={() => handleMemoPress('ABCD')}
-            onDeletePress={() => handleMemoPress('ABCD')}
+            onLongPress={() => handleMemoLongPress(item.id)}
+            onDeletePress={() => handleMemoDeletePress(item.id)}
             label={undefined}
           />
         )}
