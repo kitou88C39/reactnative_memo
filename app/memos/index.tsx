@@ -33,7 +33,11 @@ export default function MemoListScreen() {
   };
 
   const handleMemoLongPress = (memoId: String) => {
-    console.log({"メモが長押しされました" ,memoId });
+    console.log('メモが長押しされました', memoId);
+  };
+
+  const handleMemoDePress = (memoId: String) => {
+    console.log('メモが削除されました', memoId);
   };
 
   return (
