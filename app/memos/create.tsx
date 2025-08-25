@@ -1,11 +1,14 @@
 // メモ作成画面
 import { router, useNavigation } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
 
 export default function MemoCreateScreen() {
   const navigation = useNavigation();
+
+  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>('');
 
   useEffect(() => {
     navigation.setOptions({
