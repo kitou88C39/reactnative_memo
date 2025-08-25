@@ -1,7 +1,8 @@
 // メモ作成画面
 import { router, useNavigation } from 'expo-router';
-import { Button, StyleSheet, Text, View } from 'react-native';
 import { useEffect } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { MemoInputForm } from '../../src/components/MemoInputForm';
 
 export default function MemoCreateScreen() {
   const navigation = useNavigation();
@@ -19,7 +20,12 @@ export default function MemoCreateScreen() {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>メモ作成</Text>
+      <MemoInputForm
+      title='メモ'
+      content='メモ内容'
+      onTitleChange={() => ()}
+      onContentChange={() => ()}
+      />
     </View>
   );
 }
