@@ -45,6 +45,11 @@ export default function MemoListScreen() {
     console.log('メモが削除されました', memoId);
   };
 
+  const handleLabelPress = (labelId?: number) => {
+    console.log('ラベルが選択されました', labelId);
+    setIsLabelListModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
