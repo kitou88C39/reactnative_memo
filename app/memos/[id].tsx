@@ -24,20 +24,15 @@ export default function MemoEditScreen() {
     router.back();
   };
   return (
-    <View style={styles.container}>
-      <Text style={styles.tittle}>メモ修正: {id}</Text>
-    </View>
+    <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
+      <MemoInputForm title={title} content={content} onTitleChange={setTitle} onContentChange={setContent} />
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EFEFF4',
-    justifyContent: 'center'
-  },
-  tittle: {
-    fontSize: 20,
-    fontWeight: 'bold'
+    backgroundColor: '#EFEFF4'
   }
 });
