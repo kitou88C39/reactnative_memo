@@ -24,8 +24,8 @@ const LabelListModal: React.FC<LabelListModalProps> = props => {
         </ModalHeader>
         <ModalBody>
           {data.map(label => (
-            <TouchableOpacity>
-              <LabelTag />
+            <TouchableOpacity key={label.id} style={{ marginVertical: 2 }} onPress={() => onPress(label.id)}>
+              <LabelTag color={label.color} name={label.name} />
             </TouchableOpacity>
           ))}
         </ModalBody>
