@@ -1,6 +1,7 @@
 //ラベル画面作成
 import { router } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { Input, InputField } from '@gluestack-ui/themed';
 
 export default function LabelCreateScreen() {
   const handleCreatePress = () => {
@@ -8,7 +9,6 @@ export default function LabelCreateScreen() {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.tittle}>ラベル作成</Text>
       <Button title="作成" onPress={handleCreatePress} />
     </View>
   );
@@ -17,11 +17,6 @@ export default function LabelCreateScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EFEFF4',
-    justifyContent: 'center'
-  },
-  tittle: {
-    fontSize: 20,
-    fontWeight: 'bold'
+    backgroundColor: '#EFEFF4'
   }
 });
