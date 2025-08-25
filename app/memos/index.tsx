@@ -38,6 +38,7 @@ export default function MemoListScreen() {
 
   const handleMemoLongPress = (memoId: String) => {
     console.log('メモが長押しされました', memoId);
+    setIsLabelListModalVisible(true);
   };
 
   const handleMemoDeletePress = (memoId: String) => {
