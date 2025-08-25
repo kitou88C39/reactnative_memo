@@ -1,5 +1,5 @@
 import { Modal, ModalBackdrop, ModalContent, ModalHeader, ModalBody, Heading, ModalCloseButton, Icon, CloseIcon } from '@gluestack-ui/themed';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 import { LabelTag } from './LabelTag';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -16,7 +16,7 @@ const LabelListModal: React.FC<LabelListModalProps> = props => {
   return (
     <Modal isOpen={visible} onClose={onClose}>
       <ModalBackdrop />
-      <ModalContent>
+      <ModalContent width={'85%'} backgroundColor="#ffffff">
         <ModalHeader>
           <Heading size="lg">{title}</Heading>
           <ModalCloseButton>
@@ -24,7 +24,10 @@ const LabelListModal: React.FC<LabelListModalProps> = props => {
           </ModalCloseButton>
         </ModalHeader>
         <ModalBody>
-          <TouchableOpacity></TouchableOpacity>
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 5 }} onPress={() => onPress(undefined)}>
+            <MaterialCommunityIcons name="label" size={26} color={'gray'} />
+            <Text style={{ marginLeft: 5 }}>ラベル削除</Text>
+          </TouchableOpacity>
           {data.map(label => (
             <TouchableOpacity key={label.id} style={{ marginVertical: 2 }} onPress={() => onPress(label.id)}>
               <LabelTag color={label.color} name={label.name} />
