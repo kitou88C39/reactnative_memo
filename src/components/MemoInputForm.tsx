@@ -9,7 +9,7 @@ type MemoInputFormProps = {
   onContentChange: (text: string) => void;
 };
 
-const inputAccessoryViewID = "INPUT_ACCESSORY_VIEW_ID";
+const inputAccessoryViewID = 'INPUT_ACCESSORY_VIEW_ID';
 
 const MemoInputForm: React.FC<MemoInputFormProps> = props => {
   const { content, title, onTitleChange, onContentChange } = props;
@@ -27,12 +27,12 @@ const MemoInputForm: React.FC<MemoInputFormProps> = props => {
           onChangeText={onContentChange}
           fontSize={'$md'}
           placeholder="メモを入力してください"
-          inputAccessoryViewID=''
+          inputAccessoryViewID={inputAccessoryViewID}
         />
       </Textarea>
-      {Platform.OS === "" && (
 
-      )}
+      {Platform.OS === 'ios' && <InputAccessoryView backgroundColor={'#F1F1F1'} style={{ alignContent: 'flex-end' }} />}
+      <Button title="閉じる" onPress={() => Keyboard.dismiss()} />
     </View>
   );
 };
