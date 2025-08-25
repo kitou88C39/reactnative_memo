@@ -1,5 +1,6 @@
 import { Input, InputField, Textarea, TextareaInput } from '@gluestack-ui/themed';
 import { View } from 'react-native';
+import { Button, InputAccessoryView, Keyboard, Platform } from 'react-native';
 
 type MemoInputFormProps = {
   title: string;
@@ -7,6 +8,8 @@ type MemoInputFormProps = {
   onTitleChange: (text: string) => void;
   onContentChange: (text: string) => void;
 };
+
+const inputAccessoryViewID = "INPUT_ACCESSORY_VIEW_ID";
 
 const MemoInputForm: React.FC<MemoInputFormProps> = props => {
   const { content, title, onTitleChange, onContentChange } = props;
@@ -24,8 +27,12 @@ const MemoInputForm: React.FC<MemoInputFormProps> = props => {
           onChangeText={onContentChange}
           fontSize={'$md'}
           placeholder="メモを入力してください"
+          inputAccessoryViewID=''
         />
       </Textarea>
+      {Platform.OS === "" && (
+
+      )}
     </View>
   );
 };
