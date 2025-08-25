@@ -33,6 +33,6 @@ export default function MemoEditScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EFEFF4'
+    backgroundColor: '#ffffff'
   }
 });
