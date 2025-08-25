@@ -30,9 +30,13 @@ const MemoInputForm: React.FC<MemoInputFormProps> = props => {
           inputAccessoryViewID={inputAccessoryViewID}
         />
       </Textarea>
-
-      {Platform.OS === 'ios' && <InputAccessoryView backgroundColor={'#F1F1F1'} style={{ alignContent: 'flex-end' }} />}
-      <Button title="閉じる" onPress={() => Keyboard.dismiss()} />
+      {Platform.OS === 'ios' && (
+        <InputAccessoryView backgroundColor={'#F1F1F1'}>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Button title="閉じる" onPress={() => Keyboard.dismiss()} />
+          </View>
+        </InputAccessoryView>
+      )}
     </View>
   );
 };
