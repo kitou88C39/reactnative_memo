@@ -9,6 +9,9 @@ export default function LabelCreateScreen() {
   };
   return (
     <View style={styles.container}>
+      <Input variant="underlined" size="md" backgroundColor="$white" borderBlockColor="$warmGray400">
+        <InputField padding={'$2'} placeholder="ラベル名" onChangeText={} />
+      </Input>
       <Button title="作成" onPress={handleCreatePress} />
     </View>
   );
