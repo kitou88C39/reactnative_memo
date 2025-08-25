@@ -3,6 +3,7 @@ import { router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
+import { KeyboardAvoidingView } from '@gluestack-ui/themed';
 
 export default function MemoCreateScreen() {
   const navigation = useNavigation();
@@ -22,9 +23,9 @@ export default function MemoCreateScreen() {
     router.back();
   };
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
       <MemoInputForm title={title} content={content} onTitleChange={setTitle} onContentChange={setContent} />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
