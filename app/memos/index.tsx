@@ -80,15 +80,7 @@ export default function MemoListScreen() {
         )}
         keyExtractor={item => item.id}
       />
-      <LabelListModal
-        visible={isLabelListModalVisible}
-        title="ラベル設定"
-        data={[]}
-        onPress={() => {}}
-        onClose={() => {
-          setIsLabelListModalVisible(false);
-        }}
-      />
+      <LabelListModal visible={isLabelListModalVisible} title="ラベル設定" data={[]} onPress={handleLabelPress} onClose={handleLabelListModalClose} />
     </View>
   );
 }
