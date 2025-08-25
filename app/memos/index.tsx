@@ -1,10 +1,11 @@
 //メモ修正画面
 import { Feather } from '@expo/vector-icons';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
-import { useEffect } from 'react';
-import { Button, StyleSheet, Text, View, FlatList } from 'react-native';
-import { MemoListItem } from '../../src/components/MemoListitem';
+import React, { useEffect, useState } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { LabelTag } from '../../src/components/LabelTag';
+import { MemoListItem } from '../../src/components/MemoListitem';
+import { LabelListModal } from '../../src/components/LabelListModal';
 
 const MEMO_DATA = [
   { id: 'ABCD', name: 'useStateについて', content: 'blue', label: { color: 'blue', name: 'プログラミング' } },
@@ -16,6 +17,8 @@ const MEMO_DATA = [
 export default function MemoListScreen() {
   const navigation = useNavigation();
   const { labelId } = useLocalSearchParams();
+
+  const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
 
   useEffect(() => {
     navigation.setOptions({

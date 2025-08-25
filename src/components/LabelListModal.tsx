@@ -26,3 +26,4 @@ const LabelListModal: React.FC<LabelListModalProps> = props => {
     </Modal>
   );
 };
+export { LabelListModal };
