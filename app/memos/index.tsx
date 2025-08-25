@@ -50,6 +50,10 @@ export default function MemoListScreen() {
     setIsLabelListModalVisible(false);
   };
 
+  const handleLabelListModalClose = () => {
+    setIsLabelListModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
