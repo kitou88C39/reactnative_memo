@@ -1,4 +1,5 @@
 import { Modal, ModalBackdrop, ModalContent, ModalHeader, ModalBody } from '@gluestack-ui/themed';
+import { Heading, ModalCloseButton, Icon, CloseIcon } from '@gluestack-ui/themed';
 
 type LabelListModalProps = {
   visible: boolean;
@@ -10,12 +11,18 @@ type LabelListModalProps = {
 
 const LabelListModal: React.FC<LabelListModalProps> = props => {
   const { visible, title, data, onPress, onClose } = props;
-  return;
-  <Modal>
-    <ModalBackdrop />
-    <ModalContent>
-      <ModalHeader></ModalHeader>
-      <ModalBody></ModalBody>
-    </ModalContent>
-  </Modal>;
+  return (
+    <Modal>
+      <ModalBackdrop />
+      <ModalContent>
+        <ModalHeader>
+          <Heading size="lg">{title}</Heading>
+          <ModalCloseButton>
+            <Icon size="lg" as={CloseIcon} />
+          </ModalCloseButton>
+        </ModalHeader>
+        <ModalBody></ModalBody>
+      </ModalContent>
+    </Modal>
+  );
 };
