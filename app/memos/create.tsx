@@ -23,12 +23,7 @@ export default function MemoCreateScreen() {
   };
   return (
     <View style={styles.container}>
-      <MemoInputForm
-      title='メモ'
-      content='メモ内容'
-      onTitleChange={() => ()}
-      onContentChange={() => ()}
-      />
+      <MemoInputForm title={title} content={content} onTitleChange={setTitle} onContentChange={setContent} />
     </View>
   );
 }
