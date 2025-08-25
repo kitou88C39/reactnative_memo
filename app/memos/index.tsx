@@ -13,6 +13,12 @@ const MEMO_DATA = [
   { id: 'IJKL', name: 'オムライス', content: '卵' }
 ];
 
+const LABEL_DATA = [
+  { id: 1, name: 'プログラミング', color: 'blue' },
+  { id: 2, name: 'パスワード', color: 'green' },
+  { id: 3, name: '料理', color: 'orange' }
+];
+
 // アプリ起動時の画面
 export default function MemoListScreen() {
   const navigation = useNavigation();
