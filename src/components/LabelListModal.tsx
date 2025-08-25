@@ -1,3 +1,5 @@
+import { Modal, ModalBackdrop, ModalContent, ModalHeader, ModalBody } from '@gluestack-ui/themed';
+
 type LabelListModalProps = {
   visible: boolean;
   title: string;
@@ -7,5 +9,13 @@ type LabelListModalProps = {
 };
 
 const LabelListModal: React.FC<LabelListModalProps> = props => {
-  const {} = props;
+  const { visible, title, data, onPress, onClose } = props;
+  return;
+  <Modal>
+    <ModalBackdrop />
+    <ModalContent>
+      <ModalHeader></ModalHeader>
+      <ModalBody></ModalBody>
+    </ModalContent>
+  </Modal>;
 };
