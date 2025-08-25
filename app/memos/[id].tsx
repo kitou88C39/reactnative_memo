@@ -1,11 +1,16 @@
 //メモ修正画面
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
+import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { useEffect } from 'react';
+import { MemoInputForm } from '../../src/components/MemoInputForm';
+import { KeyboardAvoidingView } from '@gluestack-ui/themed';
 
 export default function MemoEditScreen() {
   const navigation = useNavigation();
   const { id } = useLocalSearchParams();
+
+  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>('');
 
   useEffect(() => {
     navigation.setOptions({
