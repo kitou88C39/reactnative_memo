@@ -3,9 +3,11 @@ import { router } from 'expo-router';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { Input, InputField } from '@gluestack-ui/themed';
 import { useState } from 'react';
+import { ColorPicker } from '../../src/components/ColorPicker';
 
 export default function LabelCreateScreen() {
   const [labelName, setLabelName] = useState<String>('');
+  const [colorPicker, setColorPicker] = useState<String | undefined>(undefined);
 
   const handleCreatePress = () => {
     router.dismiss();
