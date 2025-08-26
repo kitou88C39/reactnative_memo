@@ -24,7 +24,9 @@ const LABEL_DATA = [
 // アプリ起動時の画面
 export default function MemoListScreen() {
   const navigation = useNavigation();
-  const { labelId } = useLocalSearchParams();
+
+  const selectedLabelId = useRecoilState(selectedLabelIdState);
+  const selectedLabel = LABEL_DATA.find(label => label.id === selectedLabelId);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
 
