@@ -23,6 +23,13 @@ export default function MemoCreateScreen() {
   }, []);
 
   const handleCreatePress = () => {
+    setVisible(true);
+
+    setTimeout(() => {
+      setVisible(false);
+      router.back();
+    }, 3000);
+
     router.back();
   };
   return (
