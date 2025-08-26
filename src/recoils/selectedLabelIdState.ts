@@ -4,3 +4,5 @@ const selectedLabelIdState = atom<number | undefined>({
   key: 'selectedLabelIdState',
   default: undefined
 });
+
+export { selectedLabelIdState };

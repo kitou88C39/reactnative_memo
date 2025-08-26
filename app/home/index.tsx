@@ -1,10 +1,12 @@
 //ホーム画面
 import { MaterialIcons } from '@expo/vector-icons';
+import { ListItem } from '@rneui/themed';
 import { router, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
-import { ListItem } from '@rneui/themed';
+import { useRecoilState } from 'recoil';
+import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
 const LABEL_DATA = [
   { id: 1, name: 'プログラミング', color: 'blue' },
@@ -14,6 +16,8 @@ const LABEL_DATA = [
 
 export default function HomeScreen() {
   const navigation = useNavigation();
+
+  const [selectedLabelId, selectedLabelId] = useRecoilState();
 
   useEffect(() => {
     navigation.setOptions({
