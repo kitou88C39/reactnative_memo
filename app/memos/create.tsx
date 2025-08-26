@@ -4,15 +4,12 @@ import { router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
-import { Indicator } from '../../src/components/Indicator';
 
 export default function MemoCreateScreen() {
   const navigation = useNavigation();
 
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
-
-  const [visible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {
     navigation.setOptions({
@@ -23,13 +20,6 @@ export default function MemoCreateScreen() {
   }, []);
 
   const handleCreatePress = () => {
-    setVisible(true);
-
-    setTimeout(() => {
-      setVisible(false);
-      router.back();
-    }, 3000);
-
     router.back();
   };
   return (
