@@ -2,8 +2,9 @@
 import { Input, InputField, VStack } from '@gluestack-ui/themed';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ColorPicker } from '../../src/components/ColorPicker';
+import { Button, ButtonText } from '@gluestack-ui/themed';
 
 export default function LabelEditScreen() {
   const { id } = useLocalSearchParams();
@@ -26,6 +27,10 @@ export default function LabelEditScreen() {
         </Input>
         <ColorPicker onPress={handleColorPress} />
         <Button title="修正" onPress={handleEditPress} />
+
+        <Button size="md" action="primary" marginHorizontal={'$4'} onPress={handleCreatePress}>
+          <ButtonText>作成</ButtonText>
+        </Button>
       </VStack>
     </View>
   );
