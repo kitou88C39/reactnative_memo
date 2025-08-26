@@ -25,7 +25,8 @@ const LABEL_DATA = [
 export default function MemoListScreen() {
   const navigation = useNavigation();
 
-  const selectedLabelId = useRecoilState(selectedLabelIdState);
+  const [selectedLabelId, setSelectedLabelId] = useRecoilState(selectedLabelIdState);
+
   const selectedLabel = LABEL_DATA.find(label => label.id === selectedLabelId);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
