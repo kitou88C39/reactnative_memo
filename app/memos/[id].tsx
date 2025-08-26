@@ -23,12 +23,12 @@ export default function MemoEditScreen() {
   }, []);
 
   useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => {
-        return <Button title="保存" onPress={handleSavePress} />;
-      }
-    });
-  }, []);
+    const memo = MEMO_DATA.find(memo => memo.id === id);
+    if (memo) {
+      setTitle(memo.title);
+      setContent(memo.content);
+    }
+  }, [id]);
 
   const handleSavePress = () => {
     router.back();
