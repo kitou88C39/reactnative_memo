@@ -9,6 +9,8 @@ import { LabelTag } from '../../src/components/LabelTag';
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
+import { LABEL_DATA } from '../../src/dummy_data/labelData';
+
 const MEMO_DATA = [
   { id: 'ABCD', name: 'useStateについて', content: 'blue', label: { color: 'blue', name: 'プログラミング' } },
   { id: 'EFGH', name: 'アカウント', content: 'メールアドレス' },
