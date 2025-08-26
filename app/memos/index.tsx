@@ -3,9 +3,11 @@ import { Feather } from '@expo/vector-icons';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { LabelTag } from '../../src/components/LabelTag';
-import { MemoListItem } from '../../src/components/MemoListitem';
 import { LabelListModal } from '../../src/components/LabelListModal';
+import { MemoListItem } from '../../src/components/MemoListitem';
+import { LabelTag } from '../../src/components/LabelTag';
+import { useRecoilState } from 'recoil';
+import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
 const MEMO_DATA = [
   { id: 'ABCD', name: 'useStateについて', content: 'blue', label: { color: 'blue', name: 'プログラミング' } },
