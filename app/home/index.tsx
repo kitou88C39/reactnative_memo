@@ -7,6 +7,7 @@ import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
+import { LABEL_DATA } from '../../src/dummy_data/labelData';
 
 const LABEL_DATA = [
   { id: 1, name: 'プログラミング', color: 'blue' },
