@@ -7,7 +7,11 @@ import { ColorPicker } from '../../src/components/ColorPicker';
 
 export default function LabelCreateScreen() {
   const [labelName, setLabelName] = useState<String>('');
-  const [colorPicker, setColorPicker] = useState<String | undefined>(undefined);
+  const [color, setColor] = useState<String | undefined>(undefined);
+
+  const handleColorPress = (color: string) => {
+    setColor(color);
+  };
 
   const handleCreatePress = () => {
     router.dismiss();
@@ -17,6 +21,7 @@ export default function LabelCreateScreen() {
       <Input variant="underlined" size="md" backgroundColor="$white" borderBlockColor="$warmGray400">
         <InputField padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
       </Input>
+      <ColorPicker onPress={color => setColor(color)} defaultColor={color} />
       <Button title="作成" onPress={handleCreatePress} />
     </View>
   );
