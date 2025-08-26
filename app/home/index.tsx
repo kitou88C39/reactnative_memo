@@ -17,7 +17,7 @@ const LABEL_DATA = [
 export default function HomeScreen() {
   const navigation = useNavigation();
 
-  const [selectedLabelId, selectedLabelId] = useRecoilState();
+  const [selectedLabelId, setSelectedLabelId] = useRecoilState(selectedLabelIdState);
 
   useEffect(() => {
     navigation.setOptions({
@@ -28,12 +28,13 @@ export default function HomeScreen() {
   }, []);
 
   const handleAllMemoPress = () => {
+    setSelectedLabelId(undefined);
     router.push({ pathname: '/memos' });
   };
 
   const handleLabelPress = (labelId: number) => {
-    const params = { labelId: labelId };
-    router.push({ pathname: '/memos', params: params });
+    setSelectedLabelId(labelId);
+    router.push({ pathname: '/memos' });
   };
 
   const handleAddLabelPress = () => {
