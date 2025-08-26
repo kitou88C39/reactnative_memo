@@ -19,6 +19,11 @@ export default function LabelEditScreen() {
   const handleEditPress = () => {
     router.dismiss();
   };
+
+  const handleDeletePress = () => {
+    router.dismiss();
+  };
+
   return (
     <View style={styles.container}>
       <VStack space="lg">
@@ -26,10 +31,14 @@ export default function LabelEditScreen() {
           <InputField padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
         </Input>
         <ColorPicker onPress={handleColorPress} />
-        <Button title="修正" onPress={handleEditPress} />
+        {/* <Button title="修正" onPress={handleEditPress} /> */}
 
-        <Button size="md" action="primary" marginHorizontal={'$4'} onPress={handleCreatePress}>
-          <ButtonText>作成</ButtonText>
+        <Button size="md" action="primary" marginHorizontal={'$4'} onPress={handleEditPress}>
+          <ButtonText>修正</ButtonText>
+        </Button>
+
+        <Button size="md" action="nagative" marginHorizontal={'$4'} onPress={handleDeletePress}>
+          <ButtonText>削除</ButtonText>
         </Button>
       </VStack>
     </View>
