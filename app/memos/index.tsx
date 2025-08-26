@@ -41,11 +41,10 @@ export default function MemoListScreen() {
   }, []);
 
   useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => {
-        return <Feather name="edit" size={24} color="black" onPress={handleCreatePress} />;
-      }
-    });
+    const labels = LABEL_DATA;
+    setLabels(labels);
+    const filteredMemos = selectedLabelId ? MEMO_DATA.filter(memo => memo.labelId === selectedLabelId) : MEMO_DATA;
+    setMemos(filteredMemos);
   }, []);
 
   const handleCreatePress = () => {
