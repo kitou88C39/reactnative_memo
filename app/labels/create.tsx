@@ -1,8 +1,8 @@
 //ラベル画面作成
+import { Input, InputField, VStack } from '@gluestack-ui/themed';
 import { router } from 'expo-router';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { Input, InputField } from '@gluestack-ui/themed';
 import { useState } from 'react';
+import { Button, StyleSheet, View } from 'react-native';
 import { ColorPicker } from '../../src/components/ColorPicker';
 
 export default function LabelCreateScreen() {
@@ -18,11 +18,13 @@ export default function LabelCreateScreen() {
   };
   return (
     <View style={styles.container}>
-      <Input variant="underlined" size="md" backgroundColor="$white" borderBlockColor="$warmGray400">
-        <InputField padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
-      </Input>
-      <ColorPicker onPress={color => setColor(color)} defaultColor={color} />
-      <Button title="作成" onPress={handleCreatePress} />
+      <VStack space="lg">
+        <Input variant="underlined" size="md" backgroundColor="$white" borderBlockColor="$warmGray400">
+          <InputField padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
+        </Input>
+        <ColorPicker onPress={handleColorPress} />
+        <Button title="作成" onPress={handleCreatePress} />
+      </VStack>
     </View>
   );
 }
