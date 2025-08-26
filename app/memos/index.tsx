@@ -10,6 +10,7 @@ import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
+import { MEMO_DATA } from '../../src/dummy_data/memoData';
 
 const MEMO_DATA = [
   { id: 'ABCD', name: 'useStateについて', content: 'blue', label: { color: 'blue', name: 'プログラミング' } },
@@ -77,12 +78,12 @@ export default function MemoListScreen() {
         data={MEMO_DATA}
         renderItem={({ item }) => (
           <MemoListItem
-            name={item.name}
+            name={item.title}
             content={item.content}
             onPress={() => handleMemoPress(item.id)}
             onLongPress={() => handleMemoLongPress(item.id)}
             onDeletePress={() => handleMemoDeletePress(item.id)}
-            label={item.label}
+            label={selectedLabelId ? undefined : LABEL_DATA.find(label => label.id === item.labelId)}
           />
         )}
         keyExtractor={item => item.id}
