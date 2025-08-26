@@ -6,10 +6,11 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import { LabelListModal } from '../../src/components/LabelListModal';
 import { MemoListItem } from '../../src/components/MemoListitem';
 import { LabelTag } from '../../src/components/LabelTag';
-import { useRecoilState } from 'recoil';
-import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 import { type Label } from '../../src/types/label';
 import { type Memo } from '../../src/types/memo';
+
+import { useRecoilValue } from 'recoil';
+import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
 import { MEMO_DATA } from '../../src/dummy_data/memoData';
@@ -24,11 +25,10 @@ const MEMO_DATA = [
 export default function MemoListScreen() {
   const navigation = useNavigation();
 
-  const [selectedLabelId, setSelectedLabelId] = useRecoilState(selectedLabelIdState);
+  const selectedLabelId = useRecoilValue(selectedLabelIdState);
   const [labels, setLabels] = useState<Label[]>();
   const [memos, setMemos] = useState<Memo[]>();
-
-  const selectedLabel = LABEL_DATA.find(label => label.id === selectedLabelId);
+  const selectedLabel = labels.find(label => label.id === selectedLabelId);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
 
@@ -86,7 +86,7 @@ export default function MemoListScreen() {
           )
         }
         contentContainerStyle={{ paddingBottom: 100 }}
-        data={MEMO_DATA}
+        data={memos}
         renderItem={({ item }) => (
           <MemoListItem
             name={item.title}
@@ -94,7 +94,7 @@ export default function MemoListScreen() {
             onPress={() => handleMemoPress(item.id)}
             onLongPress={() => handleMemoLongPress(item.id)}
             onDeletePress={() => handleMemoDeletePress(item.id)}
-            label={selectedLabelId ? undefined : LABEL_DATA.find(label => label.id === item.labelId)}
+            label={selectedLabelId ? undefined : labels.find(label => label.id === item.labelId)}
           />
         )}
         keyExtractor={item => item.id}
@@ -102,7 +102,7 @@ export default function MemoListScreen() {
       <LabelListModal
         visible={isLabelListModalVisible}
         title="ラベル設定"
-        data={LABEL_DATA}
+        data={labels}
         onPress={handleLabelPress}
         onClose={handleLabelListModalClose}
       />
