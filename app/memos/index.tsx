@@ -1,11 +1,11 @@
 //メモ修正画面
 import { Feather } from '@expo/vector-icons';
-import { router, useLocalSearchParams, useNavigation } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { LabelListModal } from '../../src/components/LabelListModal';
-import { MemoListItem } from '../../src/components/MemoListitem';
 import { LabelTag } from '../../src/components/LabelTag';
+import { MemoListItem } from '../../src/components/MemoListitem';
 import { type Label } from '../../src/types/label';
 import { type Memo } from '../../src/types/memo';
 

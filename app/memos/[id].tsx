@@ -1,9 +1,11 @@
 //メモ修正画面
+import { KeyboardAvoidingView } from '@gluestack-ui/themed';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
-import { KeyboardAvoidingView } from '@gluestack-ui/themed';
+
+import { MEMO_DATA } from '../../src/dummy_data/memoData';
 
 export default function MemoEditScreen() {
   const navigation = useNavigation();
