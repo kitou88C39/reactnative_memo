@@ -40,6 +40,14 @@ export default function MemoListScreen() {
     });
   }, []);
 
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Feather name="edit" size={24} color="black" onPress={handleCreatePress} />;
+      }
+    });
+  }, []);
+
   const handleCreatePress = () => {
     router.push({ pathname: '/memos/create' });
   };
