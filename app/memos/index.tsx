@@ -25,7 +25,8 @@ const LABEL_DATA = [
 export default function MemoListScreen() {
   const navigation = useNavigation();
 
-  const selectedLabelId = useRecoilState(selectedLabelIdState);
+  const [selectedLabelId, setSelectedLabelId] = useRecoilState(selectedLabelIdState);
+
   const selectedLabel = LABEL_DATA.find(label => label.id === selectedLabelId);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
@@ -68,9 +69,9 @@ export default function MemoListScreen() {
     <View style={styles.container}>
       <FlatList
         ListHeaderComponent={
-          labelId ? (
+          selectedLabel ? (
             <View style={{ margin: 10 }}>
-              <LabelTag color="blue" name={`ラベルID: ${labelId}`} />
+              <LabelTag color={selectedLabel.color} name={selectedLabel.name} />
             </View>
           ) : (
             <></>
