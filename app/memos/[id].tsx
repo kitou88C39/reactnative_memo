@@ -22,6 +22,14 @@ export default function MemoEditScreen() {
     });
   }, []);
 
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Button title="保存" onPress={handleSavePress} />;
+      }
+    });
+  }, []);
+
   const handleSavePress = () => {
     router.back();
   };
