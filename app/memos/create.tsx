@@ -4,9 +4,13 @@ import { router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
+import { useRecoilState } from 'recoil';
+import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
 export default function MemoCreateScreen() {
   const navigation = useNavigation();
+
+  const [selectedLabelId, setSelectedLabelId] = useRecoilState(selectedLabelIdState);
 
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
