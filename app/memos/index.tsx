@@ -8,6 +8,7 @@ import { MemoListItem } from '../../src/components/MemoListitem';
 import { LabelTag } from '../../src/components/LabelTag';
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
+import { type Label } from '../../src/types/label';
 
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
 import { MEMO_DATA } from '../../src/dummy_data/memoData';
@@ -23,6 +24,7 @@ export default function MemoListScreen() {
   const navigation = useNavigation();
 
   const [selectedLabelId, setSelectedLabelId] = useRecoilState(selectedLabelIdState);
+  const [labels, setLabels] = useState<Label[]>();
 
   const selectedLabel = LABEL_DATA.find(label => label.id === selectedLabelId);
 
