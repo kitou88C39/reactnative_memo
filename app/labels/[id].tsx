@@ -31,15 +31,16 @@ export default function LabelEditScreen() {
           <InputField padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
         </Input>
         <ColorPicker onPress={handleColorPress} />
-        {/* <Button title="修正" onPress={handleEditPress} /> */}
 
-        <Button size="md" action="primary" marginHorizontal={'$4'} onPress={handleEditPress}>
-          <ButtonText>修正</ButtonText>
-        </Button>
+        <VStack space="md">
+          <Button size="md" action="primary" marginHorizontal={'$4'} onPress={handleEditPress}>
+            <ButtonText>修正</ButtonText>
+          </Button>
 
-        <Button size="md" action="nagative" marginHorizontal={'$4'} onPress={handleDeletePress}>
-          <ButtonText>削除</ButtonText>
-        </Button>
+          <Button size="md" action="negative" marginHorizontal={'$4'} onPress={handleDeletePress}>
+            <ButtonText>削除</ButtonText>
+          </Button>
+        </VStack>
       </VStack>
     </View>
   );
