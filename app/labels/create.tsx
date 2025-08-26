@@ -24,7 +24,7 @@ export default function LabelCreateScreen() {
           <InputField padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
         </Input>
         <ColorPicker onPress={handleColorPress} />
-        {/* <Button title="作成" onPress={handleCreatePress} /> */}
+
         <Button size="md" action="primary" marginHorizontal={'$4'} onPress={handleCreatePress}>
           <ButtonText>作成</ButtonText>
         </Button>
