@@ -68,9 +68,9 @@ export default function MemoListScreen() {
     <View style={styles.container}>
       <FlatList
         ListHeaderComponent={
-          labelId ? (
+          selectedLabel ? (
             <View style={{ margin: 10 }}>
-              <LabelTag color="blue" name={`ラベルID: ${labelId}`} />
+              <LabelTag color={selectedLabel.color} name={selectedLabel.name} />
             </View>
           ) : (
             <></>
