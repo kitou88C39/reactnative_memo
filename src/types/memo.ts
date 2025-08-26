@@ -1,6 +1,6 @@
 type Memo = {
   id: string;
-  name: string;
+  title: string;
   content: string;
   labelId: number | undefined;
 };
