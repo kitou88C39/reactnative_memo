@@ -20,3 +20,16 @@ const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
     throw error;
   }
 };
+
+const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
+  const db = await SQLite.openDatabaseAsync(DB_NAME);
+  const { sql, params } = sqlArg;
+
+  try {
+    const allRows = await db.getAllAsync<T>(sql, ...(params || []));
+    return allRows;
+  } catch (error) {
+    console.error('SQLの実行に失敗しました', error);
+    throw error;
+  }
+};
