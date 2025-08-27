@@ -15,19 +15,13 @@ import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
 import { MEMO_DATA } from '../../src/dummy_data/memoData';
 
-const MEMO_DATA = [
-  { id: 'ABCD', name: 'useStateについて', content: 'blue', label: { color: 'blue', name: 'プログラミング' } },
-  { id: 'EFGH', name: 'アカウント', content: 'メールアドレス' },
-  { id: 'IJKL', name: 'オムライス', content: '卵' }
-];
-
 // アプリ起動時の画面
 export default function MemoListScreen() {
   const navigation = useNavigation();
 
   const selectedLabelId = useRecoilValue(selectedLabelIdState);
-  const [labels, setLabels] = useState<Label[]>();
-  const [memos, setMemos] = useState<Memo[]>();
+  const [labels, setLabels] = useState<Label[]>([]);
+  const [memos, setMemos] = useState<Memo[]>([]);
   const selectedLabel = labels.find(label => label.id === selectedLabelId);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
@@ -94,7 +88,7 @@ export default function MemoListScreen() {
             onPress={() => handleMemoPress(item.id)}
             onLongPress={() => handleMemoLongPress(item.id)}
             onDeletePress={() => handleMemoDeletePress(item.id)}
-            label={selectedLabelId ? undefined : labels.find(label => label.id === item.labelId)}
+            label={selectedLabelId ? undefined : labels?.find(label => label.id === item.labelId)}
           />
         )}
         keyExtractor={item => item.id}
