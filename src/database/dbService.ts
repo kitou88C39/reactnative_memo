@@ -14,6 +14,13 @@ const excute = async (...sqlArg: SqlArg[]): Promise<void> => {
   await db.withExclusiveTransactionAsync(async () => {
     for (const arg of sqlArg) {
       const { sql, params } = arg;
+
+      try {
+        await db.runAsync(sql, ...(params || []));
+      } catch (error) {
+        console.error('SQLの実行に失敗しました', error);
+        throw error;
+      }
     }
   });
 
