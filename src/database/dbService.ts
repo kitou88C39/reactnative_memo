@@ -8,17 +8,17 @@ type SqlArg = {
 
 const DB_NAME = 'MemoApp.db';
 
-const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
+const excute = async (...sqlArg: SqlArg[]): Promise<void> => {
   const db = await SQLite.openDatabaseAsync(DB_NAME);
   const { sql, params } = sqlArg;
 
-  try {
-    const allRows = await db.getAllAsync<T>(sql, ...(params || []));
-    return allRows;
-  } catch (error) {
-    console.error('SQLの実行に失敗しました', error);
-    throw error;
-  }
+  // try {
+  //   const allRows = await db.getAllAsync<T>(sql, ...(params || []));
+  //   return allRows;
+  // } catch (error) {
+  //   console.error('SQLの実行に失敗しました', error);
+  //   throw error;
+  // }
 };
 
 const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
