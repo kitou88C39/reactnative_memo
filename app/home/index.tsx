@@ -8,13 +8,6 @@ import { LabelListItem } from '../../src/components/LabelListitem';
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
-
-const LABEL_DATA = [
-  { id: 1, name: 'プログラミング', color: 'blue' },
-  { id: 2, name: 'パスワード', color: 'green' },
-  { id: 3, name: '料理', color: 'orange' }
-];
-
 export default function HomeScreen() {
   const navigation = useNavigation();
 
