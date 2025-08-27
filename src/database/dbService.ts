@@ -8,4 +8,10 @@ type SqlArg = {
 
 const DB_NAME = 'MemoApp.db';
 
-const fetch = async <T>(sqlArg): Promise<T> => {};
+const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
+  const db = await SQLite.openDatabaseAsync(DB_NAME);
+  const { sql, params } = sqlArg;
+
+  try {
+  } catch {}
+};
