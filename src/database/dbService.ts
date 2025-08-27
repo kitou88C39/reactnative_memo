@@ -23,14 +23,6 @@ const excute = async (...sqlArg: SqlArg[]): Promise<void> => {
       }
     }
   });
-
-  // try {
-  //   const allRows = await db.getAllAsync<T>(sql, ...(params || []));
-  //   return allRows;
-  // } catch (error) {
-  //   console.error('SQLの実行に失敗しました', error);
-  //   throw error;
-  // }
 };
 
 const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
