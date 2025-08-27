@@ -1,4 +1,5 @@
 import * as SQLite from 'expo-sqlite';
+import * as FileSystem from 'expo-file-system';
 
 type SqlArg = {
   sql: string;
@@ -6,6 +7,10 @@ type SqlArg = {
 };
 
 const DB_NAME = 'MemoApp.db';
+const getDbFilePath = () => {
+  const path = FileSystem.documentDirectory + 'SQLite' + '/' + DB_NAME;
+  return path;
+};
 
 const excute = async (...sqlArg: SqlArg[]): Promise<void> => {
   const db = await SQLite.openDatabaseAsync(DB_NAME);
