@@ -42,4 +42,4 @@ const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
   }
 };
 
-export { excute, fetch };
+export { excute, fetch, getDbFilePath };
