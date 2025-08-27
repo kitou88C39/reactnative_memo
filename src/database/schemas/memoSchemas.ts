@@ -1,7 +1,9 @@
-type Memo = {
+type MemoSchema = {
   id: string;
   title: string;
-  content: string;
-  labelId: number | undefined;
+  content: string | null;
+  labelId: number | null;
+  created_At: string;
+  updated_At: string;
 };
-export type { Memo };
+export type { MemoSchema };
