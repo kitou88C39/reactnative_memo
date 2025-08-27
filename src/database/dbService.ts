@@ -1,4 +1,3 @@
-import * as FileSystem from 'expo-file-system';
 import * as SQLite from 'expo-sqlite';
 
 type SqlArg = {
@@ -37,3 +36,5 @@ const fetch = async <T>(sqlArg: SqlArg): Promise<T[]> => {
     throw error;
   }
 };
+
+export { excute, fetch };
