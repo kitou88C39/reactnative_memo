@@ -10,7 +10,12 @@ const DB_NAME = 'MemoApp.db';
 
 const excute = async (...sqlArg: SqlArg[]): Promise<void> => {
   const db = await SQLite.openDatabaseAsync(DB_NAME);
-  const { sql, params } = sqlArg;
+
+  await db.withExclusiveTransactionAsync(async () => {
+    for (const arg of sqlArg) {
+      const { sql, params } = arg;
+    }
+  });
 
   // try {
   //   const allRows = await db.getAllAsync<T>(sql, ...(params || []));
