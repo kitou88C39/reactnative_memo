@@ -6,10 +6,7 @@ import * as MemoService from '../src/services/memoServices';
 
 export default function InitialScreen() {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      router.replace('/home');
-    }, 2000);
-    return () => clearTimeout(timer);
+    initApp();
   }, []);
 
   const initApp = async () => {
