@@ -11,6 +11,19 @@ export default function InitialScreen() {
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  const initApp = async () => {
+    try {
+      await LabelService.createTable();
+      await MemoService.createTable();
+      router.replace('/home');
+    } catch (error) {
+      console.log('アプリの起動に失敗しました', error);
+    }
+  };
+
+  initApp();
+
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>アプリ起動中・・</Text>
