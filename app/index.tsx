@@ -1,6 +1,8 @@
-import { router, Router } from 'expo-router';
+import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import * as LabelService from '../src/services/labelServices';
+import * as MemoService from '../src/services/memoServices';
 
 export default function InitialScreen() {
   useEffect(() => {
