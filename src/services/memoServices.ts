@@ -1,8 +1,8 @@
 import { excute as execute } from '../database/dbService';
-import { LabelQueries } from '../database/queries/labelQueries';
+import { MemolQueries } from '../database/queries/memoQueries';
 
 const createTable = async () => {
-  await execute({ sql: LabelQueries.CREATE_TABLE });
+  await execute({ sql: MemolQueries.CREATE_TABLE });
 };
 
 export { createTable };
