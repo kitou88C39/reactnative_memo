@@ -1,15 +1,15 @@
 const CreateTableMemos = `
 CREATE TABLE IF NOT EXISTS memos
-(
+  (
     id TEXT,
-    labelId  INTEGER,
+    label_id  INTEGER,
     title TEXT NOT NULL,
     content TEXT,
     created_at TEXT DEFAULT(DATETIME('now','localtime')),
     updated_at TEXT DEFAULT(DATETIME('now','localtime'))
     PRIMARY KEY(id),
-    FOREIGN KEY(labelId) REFERENCES labels(id),
-)
+    FOREIGN KEY(label_id) REFERENCES labels(id),
+  );
 `;
 
 const MemolQueries = Object.freeze({

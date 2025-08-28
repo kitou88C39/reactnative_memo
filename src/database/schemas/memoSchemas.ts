@@ -2,7 +2,7 @@ type MemoSchema = {
   id: string;
   title: string;
   content: string | null;
-  labelId: number | null;
+  label_id: number | null;
   created_At: string;
   updated_At: string;
 };
