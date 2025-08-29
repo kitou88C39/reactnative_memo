@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Alert } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
 import * as MemoService from '../../src/services/memoServices';
+import { Indicator } from '../../src/components/Indicator';
 
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
@@ -31,6 +32,8 @@ export default function MemoCreateScreen() {
       return;
     }
     try {
+      await MemoService.addMemo(title, content);
+      router.back();
     } catch {
       Alert.alert('エラー', 'タイトルを入力してください');
     }
