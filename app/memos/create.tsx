@@ -2,8 +2,10 @@
 import { KeyboardAvoidingView } from '@gluestack-ui/themed';
 import { router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Alert } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
+import * as MemoService from '../../src/services/memoServices';
+
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
@@ -23,8 +25,15 @@ export default function MemoCreateScreen() {
     });
   }, []);
 
-  const handleCreatePress = () => {
-    router.back();
+  const handleCreatePress = async () => {
+    if (!title) {
+      Alert.alert('エラー', 'タイトルを入力してください');
+      return;
+    }
+    try {
+    } catch {
+      Alert.alert('エラー', 'タイトルを入力してください');
+    }
   };
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
