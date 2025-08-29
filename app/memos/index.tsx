@@ -1,6 +1,6 @@
 //メモ修正画面
 import { Feather } from '@expo/vector-icons';
-import { router, useNavigation } from 'expo-router';
+import { router, useNavigation, useFocusEffect } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { LabelListModal } from '../../src/components/LabelListModal';
@@ -8,6 +8,7 @@ import { LabelTag } from '../../src/components/LabelTag';
 import { MemoListItem } from '../../src/components/MemoListitem';
 import { type Label } from '../../src/types/label';
 import { type Memo } from '../../src/types/memo';
+import * as MemoServices from '../../src/services/memoServices';
 
 import { useRecoilValue } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
@@ -34,12 +35,12 @@ export default function MemoListScreen() {
     });
   }, []);
 
-  useEffect(() => {
-    const labels = LABEL_DATA;
-    setLabels(labels);
-    const filteredMemos = selectedLabelId ? MEMO_DATA.filter(memo => memo.labelId === selectedLabelId) : MEMO_DATA;
-    setMemos(filteredMemos);
-  }, []);
+  // useEffect(() => {
+  //   const labels = LABEL_DATA;
+  //   setLabels(labels);
+  //   const filteredMemos = selectedLabelId ? MEMO_DATA.filter(memo => memo.labelId === selectedLabelId) : MEMO_DATA;
+  //   setMemos(filteredMemos);
+  // }, []);
 
   const handleCreatePress = () => {
     router.push({ pathname: '/memos/create' });
