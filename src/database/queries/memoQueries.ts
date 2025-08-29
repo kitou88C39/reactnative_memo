@@ -12,6 +12,26 @@ CREATE TABLE IF NOT EXISTS memos
   );
 `;
 
+const SelectMemos = `
+SELECT
+  m.id,
+  m.title,
+  m.content,
+  m.label_id,
+  m.created_at,
+  m.updated_at,
+  l.name,
+  l.color
+FROM
+  memos m
+LEFT JOIN
+  labels l ON m.label_id = l.id;
+FROM
+  memos m
+LEFT JOIN
+  labels l ON m.label_id = l.id;
+`;
+
 const InsertMemo = `
 INSERT INTO memos(
   id,
@@ -21,8 +41,8 @@ INSERT INTO memos(
     ?,
     ?,
     ?
-    );
-    `;
+  );
+`;
 
 const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
