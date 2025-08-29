@@ -7,7 +7,7 @@ const createTable = async () => {
 };
 
 const addMemo = async (title: string, content: string) => {
-  const memoId = Crypto.randomUUID;
+  const memoId = Crypto.randomUUID();
   await execute({ sql: MemolQueries.INSERT, params: [memoId, title, content] });
 };
 
