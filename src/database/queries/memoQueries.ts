@@ -30,6 +30,8 @@ FROM
   memos m
 LEFT JOIN
   labels l ON m.label_id = l.id;
+ORDER BY
+  m.updated_at DESC;
 `;
 
 const InsertMemo = `
@@ -46,6 +48,7 @@ INSERT INTO memos(
 
 const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
+  SELECT: SelectMemos,
   INSERT: InsertMemo
 });
 
