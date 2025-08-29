@@ -12,20 +12,21 @@ CREATE TABLE IF NOT EXISTS memos
   );
 `;
 
-const MemolQueries = Object.freeze({
-  CREATE_TABLE: CreateTableMemos
-});
-
 const InsertMemo = `
 INSERT INTO memos(
   id,
   title,
   content,
-) VALUES (
-  ?,
-  ?,
-  ?
-);
-`;
+  ) VALUES (
+    ?,
+    ?,
+    ?
+    );
+    `;
+
+const MemolQueries = Object.freeze({
+  CREATE_TABLE: CreateTableMemos,
+  INSERT: InsertMemo
+});
 
 export { MemolQueries };
