@@ -24,9 +24,9 @@ INSERT INTO memos(
     );
     `;
 
-const MemolQueries = Object.freeze({
+const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
   INSERT: InsertMemo
 });
 
-export { MemolQueries };
+export { MemoQueries };
