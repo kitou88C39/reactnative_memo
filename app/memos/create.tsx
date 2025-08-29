@@ -18,29 +18,37 @@ export default function MemoCreateScreen() {
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
         return <Button title="作成" onPress={handleCreatePress} />;
       }
     });
-  }, []);
+  }, [title, content]);
 
   const handleCreatePress = async () => {
     if (!title) {
       Alert.alert('エラー', 'タイトルを入力してください');
       return;
     }
+
+    setIsLoading(true);
+
     try {
       await MemoService.addMemo(title, content);
-      router.back();
     } catch {
       Alert.alert('エラー', 'タイトルを入力してください');
+    } finally {
+      setIsLoading(false);
     }
   };
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
       <MemoInputForm title={title} content={content} onTitleChange={setTitle} onContentChange={setContent} />
+      <Indicator visible={isLoading} />
     </KeyboardAvoidingView>
   );
 }
