@@ -1,11 +1,11 @@
 // メモ作成画面
 import { KeyboardAvoidingView } from '@gluestack-ui/themed';
-import { router, useNavigation } from 'expo-router';
+import { useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Alert } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
 import * as MemoService from '../../src/services/memoServices';
-import { Indicator } from '../../src/components/Indicator';
+import { router } from 'expo-router';
 
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
@@ -38,6 +38,7 @@ export default function MemoCreateScreen() {
 
     try {
       await MemoService.addMemo(title, content);
+      router.back();
     } catch {
       Alert.alert('エラー', 'タイトルを入力してください');
     } finally {
@@ -48,7 +49,6 @@ export default function MemoCreateScreen() {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
       <MemoInputForm title={title} content={content} onTitleChange={setTitle} onContentChange={setContent} />
-      <Indicator visible={isLoading} />
     </KeyboardAvoidingView>
   );
 }
