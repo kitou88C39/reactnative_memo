@@ -1,7 +1,7 @@
 //メモ修正画面
 import { Feather } from '@expo/vector-icons';
 import { router, useNavigation, useFocusEffect } from 'expo-router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { LabelListModal } from '../../src/components/LabelListModal';
 import { LabelTag } from '../../src/components/LabelTag';
@@ -35,6 +35,20 @@ export default function MemoListScreen() {
     });
   }, []);
 
+  useFocusEffect(
+    useCallback(() => {
+      const labelData = async (labelId: number | undefined) => {
+        try {
+   const labels = LABEL_DATA;
+     setLabels(labels);
+     const memos = await MemoServices.getMemos(labelId);
+     const filteredMemos = labelId ? memo.filter(memo => memo.labelId === selectedLabelId) : memos;
+          setMemos(filteredMemos);
+    }catch(error) {
+
+        }
+  },[]);
+)
   // useEffect(() => {
   //   const labels = LABEL_DATA;
   //   setLabels(labels);
