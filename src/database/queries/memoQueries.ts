@@ -16,4 +16,16 @@ const MemolQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos
 });
 
+const InsertMemo = `
+INSERT INTO memos(
+  id,
+  title,
+  content,
+) VALUES (
+  ?,
+  ?,
+  ?
+);
+`;
+
 export { MemolQueries };
