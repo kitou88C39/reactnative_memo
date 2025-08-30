@@ -46,4 +46,4 @@ const editMemo = async (memoId: string, title: string, content: string) => {
   await execute({ sql: MemoQueries.UPDATE, params: [title, content, memoId] });
 };
 
-export { createTable, addMemo, getMemos, getMemo };
+export { createTable, addMemo, getMemos, getMemo, editMemo };
