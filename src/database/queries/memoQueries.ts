@@ -60,6 +60,17 @@ INSERT INTO memos(
   );
 `;
 
+const UpdateMemo = `
+  UPDATE memos
+  SET
+    title = ?,
+    content = ?,
+    updated_at = DATETIME('now','localtime')
+  WHERE
+    id = ?;
+
+`;
+
 const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
   SELECT: SelectMemos,
