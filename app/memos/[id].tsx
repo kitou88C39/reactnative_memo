@@ -2,7 +2,7 @@
 import { KeyboardAvoidingView } from '@gluestack-ui/themed';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Button, StyleSheet } from 'react-native';
+import { Button, StyleSheet, Alert } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
 import * as MemoService from '../../src/services/memoServices';
 
@@ -25,11 +25,14 @@ export default function MemoEditScreen() {
 
   useEffect(() => {
     const loadData = async () => {
-      const memo = MEMO_DATA.find(memo => memo.id === id);
-      if (memo) {
-        setTitle(memo.title);
-        setContent(memo.content);
+      const memo = await MemoService.getMemo(memoId);
+      if (!memo) {
+        Alert.alert('エラー', 'メモが見つかりません', [{ text: 'OK', onPress: () => router.back() }]);
+        return;
       }
+
+      setTitle(memo.title);
+      setContent(memo.content);
     };
   }, [id]);
 
