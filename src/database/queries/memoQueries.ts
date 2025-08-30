@@ -34,6 +34,20 @@ ORDER BY
   m.updated_at DESC;
 `;
 
+const SelectMemo = `
+SELECT
+  id,
+  title,
+  content,
+  label_id,
+  created_at,
+  updated_at,
+FROM
+  memos m
+WHERE
+  id = ?;
+`;
+
 const InsertMemo = `
 INSERT INTO memos(
   id,
