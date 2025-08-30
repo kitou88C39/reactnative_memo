@@ -9,6 +9,7 @@ import { MemoListItem } from '../../src/components/MemoListitem';
 import { type Label } from '../../src/types/label';
 import { type Memo } from '../../src/types/memo';
 import * as MemoServices from '../../src/services/memoServices';
+import { Indicator } from '../../src/components/Indicator';
 
 import { useRecoilValue } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
@@ -25,6 +26,7 @@ export default function MemoListScreen() {
   const selectedLabel = labels.find(label => label.id === selectedLabelId);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     navigation.setOptions({
@@ -69,7 +71,7 @@ export default function MemoListScreen() {
       MemoServices.deleteMemo(memoId);
       setMemos(memos.filter(memo => memo.id !== memoId));
     } catch (error) {
-      Alert.alert('エラー', 'メモの削除に失敗しました');
+      Alert.alert('エラー', 'メモの削除に失敗しました', [{ text: 'OK' }]);
     }
   };
 
