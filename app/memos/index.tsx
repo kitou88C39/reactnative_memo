@@ -45,16 +45,11 @@ export default function MemoListScreen() {
      const filteredMemos = labelId ? memo.filter(memo => memo.labelId === selectedLabelId) : memos;
           setMemos(filteredMemos);
     }catch(error) {
-
+    }
         }
   },[]);
 )
-  // useEffect(() => {
-  //   const labels = LABEL_DATA;
-  //   setLabels(labels);
-  //   const filteredMemos = selectedLabelId ? MEMO_DATA.filter(memo => memo.labelId === selectedLabelId) : MEMO_DATA;
-  //   setMemos(filteredMemos);
-  // }, []);
+
 
   const handleCreatePress = () => {
     router.push({ pathname: '/memos/create' });
