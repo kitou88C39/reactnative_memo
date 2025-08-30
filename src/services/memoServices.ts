@@ -9,7 +9,7 @@ const createTable = async () => {
 };
 
 const getMemos = async (): Promise<Memo[]> => {
-  const rows = await fetch<MemoSchema>({ sql: MemoQueries.SELECT_MEMOS });
+  const rows = await fetch<MemoSchema>({ sql: MemoQueries.SELECT });
   const memos = rows.map((row): Memo => {
     return {
       id: row.id,
