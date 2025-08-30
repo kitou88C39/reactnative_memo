@@ -4,6 +4,7 @@ import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
+import * as MemoService from '../../src/services/memoServices';
 
 import { MEMO_DATA } from '../../src/dummy_data/memoData';
 
@@ -23,11 +24,13 @@ export default function MemoEditScreen() {
   }, []);
 
   useEffect(() => {
-    const memo = MEMO_DATA.find(memo => memo.id === id);
-    if (memo) {
-      setTitle(memo.title);
-      setContent(memo.content);
-    }
+    const loadData = async () => {
+      const memo = MEMO_DATA.find(memo => memo.id === id);
+      if (memo) {
+        setTitle(memo.title);
+        setContent(memo.content);
+      }
+    };
   }, [id]);
 
   const handleSavePress = () => {
