@@ -15,7 +15,6 @@ import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
 
-
 // アプリ起動時の画面
 export default function MemoListScreen() {
   const navigation = useNavigation();
@@ -66,7 +65,11 @@ export default function MemoListScreen() {
   };
 
   const handleMemoDeletePress = (memoId: String) => {
-    console.log('メモが削除されました', memoId);
+    try {
+      MemoServices.deleteMemo(memoId);
+    } catch (error) {
+      Alert.alert('エラー', 'メモの削除に失敗しました');
+    }
   };
 
   const handleLabelPress = (labelId?: number) => {
