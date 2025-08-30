@@ -26,4 +26,4 @@ const addMemo = async (title: string, content: string) => {
   await execute({ sql: MemoQueries.INSERT, params: [memoId, title, content] });
 };
 
-export { createTable, addMemo };
+export { createTable, addMemo, getMemos };
