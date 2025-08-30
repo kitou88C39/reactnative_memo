@@ -64,9 +64,10 @@ export default function MemoListScreen() {
     setIsLabelListModalVisible(true);
   };
 
-  const handleMemoDeletePress = (memoId: String) => {
+  const handleMemoDeletePress = async (memoId: string) => {
     try {
       MemoServices.deleteMemo(memoId);
+      setMemos(memos.filter(memo => memo.id !== memoId));
     } catch (error) {
       Alert.alert('エラー', 'メモの削除に失敗しました');
     }
