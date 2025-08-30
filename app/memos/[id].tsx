@@ -10,7 +10,7 @@ import { MEMO_DATA } from '../../src/dummy_data/memoData';
 
 export default function MemoEditScreen() {
   const navigation = useNavigation();
-  const { id } = useLocalSearchParams();
+  const { id } = useLocalSearchParams() as { id: string };
 
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
@@ -24,6 +24,7 @@ export default function MemoEditScreen() {
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
     const loadData = async (memoId: string) => {
       try {
         const memo = await MemoService.getMemo(memoId);
@@ -37,6 +38,13 @@ export default function MemoEditScreen() {
       } catch (error) {
         Alert.alert('エラー', 'データの取得に失敗しました', [{ text: 'OK', onPress: () => router.back() }]);
       }
+    };
+    if (isMounted) {
+      loadData(id);
+    }
+
+    return () => {
+      isMounted = false;
     };
   }, [id]);
 
