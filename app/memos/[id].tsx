@@ -46,7 +46,7 @@ export default function MemoEditScreen() {
     };
   }, [id]);
 
-  const handleSavePress = () => {
+  const handleSavePress = async() => {
     if (!title) {
       Alert.alert('エラー', 'タイトルを入力してください');
       return;
@@ -55,7 +55,7 @@ export default function MemoEditScreen() {
     setIsLoading(true);
 
     try {
-      await MemoService.addMemo(title, content);
+      await MemoService.editMemo(id,title, content);
       router.back();
     } catch {
       Alert.alert('エラー', 'タイトルを入力してください');
