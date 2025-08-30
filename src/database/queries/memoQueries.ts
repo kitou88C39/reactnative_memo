@@ -68,14 +68,14 @@ const UpdateMemo = `
     updated_at = DATETIME('now','localtime')
   WHERE
     id = ?;
-
 `;
 
 const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
   SELECT: SelectMemos,
   SELECT_MEMO_TARGET_ID: SelectMemoTargetId,
-  INSERT: InsertMemo
+  INSERT: InsertMemo,
+  UPDATE: UpdateMemo
 });
 
 export { MemoQueries };
