@@ -81,7 +81,8 @@ const MemoQueries = Object.freeze({
   SELECT: SelectMemos,
   SELECT_MEMO_TARGET_ID: SelectMemoTargetId,
   INSERT: InsertMemo,
-  UPDATE: UpdateMemo
+  UPDATE: UpdateMemo,
+  DELETE: DeleteMemo
 });
 
 export { MemoQueries };
