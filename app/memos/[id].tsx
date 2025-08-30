@@ -6,8 +6,6 @@ import { Button, StyleSheet, Alert } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
 import * as MemoService from '../../src/services/memoServices';
 
-import { MEMO_DATA } from '../../src/dummy_data/memoData';
-
 export default function MemoEditScreen() {
   const navigation = useNavigation();
   const { id } = useLocalSearchParams() as { id: string };
