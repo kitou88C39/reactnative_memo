@@ -70,6 +70,12 @@ const UpdateMemo = `
     id = ?;
 `;
 
+const DeleteMemo = `
+  DELETE FROM memos
+  WHERE
+    id = ?
+`;
+
 const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
   SELECT: SelectMemos,
