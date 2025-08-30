@@ -34,7 +34,7 @@ ORDER BY
   m.updated_at DESC;
 `;
 
-const SelectMemo = `
+const SelectMemoTargetId = `
 SELECT
   id,
   title,
@@ -63,6 +63,7 @@ INSERT INTO memos(
 const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
   SELECT: SelectMemos,
+  SELECT_MEMO_TARGET_ID: SelectMemoTargetId,
   INSERT: InsertMemo
 });
 
