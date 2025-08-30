@@ -14,7 +14,7 @@ import { useRecoilValue } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
-import { MEMO_DATA } from '../../src/dummy_data/memoData';
+
 
 // アプリ起動時の画面
 export default function MemoListScreen() {
