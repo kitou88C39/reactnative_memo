@@ -37,7 +37,7 @@ export default function MemoListScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      const labelData = async (labelId: number | undefined) => {
+      const loadData = async (labelId: number | undefined) => {
         try {
           const labels = LABEL_DATA;
           setLabels(labels);
