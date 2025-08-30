@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Alert } from 'react-native';
 import { MemoInputForm } from '../../src/components/MemoInputForm';
 import * as MemoService from '../../src/services/memoServices';
+import { Indicator } from '../../src/components/Indicator';
 
 export default function MemoEditScreen() {
   const navigation = useNavigation();
@@ -12,6 +13,9 @@ export default function MemoEditScreen() {
 
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
 
   useEffect(() => {
     navigation.setOptions({
@@ -58,7 +62,7 @@ export default function MemoEditScreen() {
       await MemoService.editMemo(id,title, content);
       router.back();
     } catch {
-      Alert.alert('エラー', 'タイトルを入力してください');
+      Alert.alert('エラー', 'メモの保存に失敗しました');
     } finally {
       setIsLoading(false);
     }
