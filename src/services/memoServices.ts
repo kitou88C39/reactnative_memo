@@ -21,8 +21,11 @@ const getMemos = async (): Promise<Memo[]> => {
   return memos;
 };
 
-const getMemos = async (): Promise<Memo[]> => {
-  const rows = await fetch<MemoSchema>({ sql: MemoQueries.SELECT });
+const getMemo = async (memoId: string): Promise<Memo | undefined> => {
+  const rows = await fetch<MemoSchema>({ sql: MemoQueries.SELECT_MEMO_TARGET_ID, params: [memoId] });
+
+  if (rows.length === 0) {
+  }
   const memos = rows.map((row): Memo => {
     return {
       id: row.id,
