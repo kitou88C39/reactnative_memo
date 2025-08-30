@@ -24,15 +24,19 @@ export default function MemoEditScreen() {
   }, []);
 
   useEffect(() => {
-    const loadData = async () => {
-      const memo = await MemoService.getMemo(memoId);
-      if (!memo) {
-        Alert.alert('エラー', 'メモが見つかりません', [{ text: 'OK', onPress: () => router.back() }]);
-        return;
-      }
+    const loadData = async (memoId: string) => {
+      try {
+        const memo = await MemoService.getMemo(memoId);
+        if (!memo) {
+          Alert.alert('エラー', 'メモが見つかりません', [{ text: 'OK', onPress: () => router.back() }]);
+          return;
+        }
 
-      setTitle(memo.title);
-      setContent(memo.content);
+        setTitle(memo.title);
+        setContent(memo.content);
+      } catch (error) {
+        Alert.alert('エラー', 'データの取得に失敗しました', [{ text: 'OK', onPress: () => router.back() }]);
+      }
     };
   }, [id]);
 
