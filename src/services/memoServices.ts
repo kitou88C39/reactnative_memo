@@ -50,6 +50,4 @@ const deleteMemo = async (memoId: string) => {
   await execute({ sql: MemoQueries.DELETE, params: [memoId] });
 };
 
-
-
-export { addMemo, createTable, editMemo ,getMemos, getMemo };
+export { addMemo, createTable, editMemo, getMemos, getMemo, deleteMemo };
