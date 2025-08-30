@@ -2,7 +2,7 @@
 import { Feather } from '@expo/vector-icons';
 import { router, useNavigation, useFocusEffect } from 'expo-router';
 import React, { useEffect, useState, useCallback } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View, Alert } from 'react-native';
 import { LabelListModal } from '../../src/components/LabelListModal';
 import { LabelTag } from '../../src/components/LabelTag';
 import { MemoListItem } from '../../src/components/MemoListitem';
@@ -39,17 +39,18 @@ export default function MemoListScreen() {
     useCallback(() => {
       const labelData = async (labelId: number | undefined) => {
         try {
-   const labels = LABEL_DATA;
-     setLabels(labels);
-     const memos = await MemoServices.getMemos(labelId);
-     const filteredMemos = labelId ? memo.filter(memo => memo.labelId === selectedLabelId) : memos;
+          const labels = LABEL_DATA;
+          setLabels(labels);
+          const memos = await MemoServices.getMemos();
+          const filteredMemos = labelId ? memos.filter(memo => memo.labelId === selectedLabelId) : memos;
           setMemos(filteredMemos);
-    }catch(error) {
-    }
+        } catch (error) {
+          Alert.alert('エラー', 'メモの取得に失敗しました', [{ text: 'OK', onPress: () => router.back() }]);
         }
-  },[]);
-)
-
+      };
+      loadData(selectedLabelId);
+    }, [selectedLabelId])
+  );
 
   const handleCreatePress = () => {
     router.push({ pathname: '/memos/create' });
