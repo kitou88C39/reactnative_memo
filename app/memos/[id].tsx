@@ -47,7 +47,22 @@ export default function MemoEditScreen() {
   }, [id]);
 
   const handleSavePress = () => {
-    router.back();
+    if (!title) {
+      Alert.alert('エラー', 'タイトルを入力してください');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await MemoService.addMemo(title, content);
+      router.back();
+    } catch {
+      Alert.alert('エラー', 'タイトルを入力してください');
+    } finally {
+      setIsLoading(false);
+    }
+  };
   };
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
