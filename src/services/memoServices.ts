@@ -25,16 +25,16 @@ const getMemo = async (memoId: string): Promise<Memo | undefined> => {
   const rows = await fetch<MemoSchema>({ sql: MemoQueries.SELECT_MEMO_TARGET_ID, params: [memoId] });
 
   if (rows.length === 0) {
+    return undefined;
   }
-  const memos = rows.map((row): Memo => {
-    return {
-      id: row.id,
-      title: row.title,
-      content: row.content || '',
-      labelId: row.label_id || undefined
-    };
-  });
-  return memos;
+
+  const row = rows[0];
+  return {
+    id: row.id,
+    title: row.title,
+    content: row.content || '',
+    labelId: row.label_id || undefined
+  };
 };
 
 const addMemo = async (title: string, content: string) => {
@@ -42,4 +42,4 @@ const addMemo = async (title: string, content: string) => {
   await execute({ sql: MemoQueries.INSERT, params: [memoId, title, content] });
 };
 
-export { createTable, addMemo, getMemos };
+export { createTable, addMemo, getMemos, getMemo };
