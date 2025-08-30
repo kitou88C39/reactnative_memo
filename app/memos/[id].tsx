@@ -16,14 +16,13 @@ export default function MemoEditScreen() {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
         return <Button title="保存" onPress={handleSavePress} />;
       }
     });
-  }, []);
+  }, [title, content]);
 
   useEffect(() => {
     let isMounted = true;
@@ -50,7 +49,7 @@ export default function MemoEditScreen() {
     };
   }, [id]);
 
-  const handleSavePress = async() => {
+  const handleSavePress = async () => {
     if (!title) {
       Alert.alert('エラー', 'タイトルを入力してください');
       return;
@@ -59,7 +58,7 @@ export default function MemoEditScreen() {
     setIsLoading(true);
 
     try {
-      await MemoService.editMemo(id,title, content);
+      await MemoService.editMemo(id, title, content);
       router.back();
     } catch {
       Alert.alert('エラー', 'メモの保存に失敗しました');
@@ -67,10 +66,12 @@ export default function MemoEditScreen() {
       setIsLoading(false);
     }
   };
-  };
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
       <MemoInputForm title={title} content={content} onTitleChange={setTitle} onContentChange={setContent} />
+
+      <Indicator visible={isLoading} />
     </KeyboardAvoidingView>
   );
 }
