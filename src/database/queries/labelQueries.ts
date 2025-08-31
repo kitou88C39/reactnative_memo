@@ -9,8 +9,19 @@ CREATE TABLE IF NOT EXISTS labels
   );
 `;
 
+const InsertLabel = `
+INSERT INTO labels(
+  name,
+  color,
+  ) VALUES (
+    ?,
+    ?
+  );
+`;
+
 const LabelQueries = Object.freeze({
-  CREATE_TABLE: CreateTableLabels
+  CREATE_TABLE: CreateTableLabels,
+  INSERT: InsertLabel
 });
 
 export { LabelQueries };
