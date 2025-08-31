@@ -26,7 +26,7 @@ export default function MemoListScreen() {
   const selectedLabel = labels.find(label => label.id === selectedLabelId);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
-  const [isLoading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     navigation.setOptions({
@@ -67,11 +67,15 @@ export default function MemoListScreen() {
   };
 
   const handleMemoDeletePress = async (memoId: string) => {
+    setIsLoading(true);
+
     try {
       MemoServices.deleteMemo(memoId);
       setMemos(memos.filter(memo => memo.id !== memoId));
     } catch (error) {
       Alert.alert('エラー', 'メモの削除に失敗しました', [{ text: 'OK' }]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
