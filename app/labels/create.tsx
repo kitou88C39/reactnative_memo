@@ -1,10 +1,10 @@
 //ラベル画面作成
-import { Input, InputField, VStack } from '@gluestack-ui/themed';
+import { Button, ButtonText, Input, InputField, VStack } from '@gluestack-ui/themed';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import { ColorPicker } from '../../src/components/ColorPicker';
-import { Button, ButtonText } from '@gluestack-ui/themed';
+import * as LabelService from '../../src/services/labelServices';
 
 export default function LabelCreateScreen() {
   const [labelName, setLabelName] = useState<String>('');
@@ -15,6 +15,14 @@ export default function LabelCreateScreen() {
   };
 
   const handleCreatePress = () => {
+    if (!labelName) {
+      Alert.alert('エラー', 'ラベル名を入力してください');
+      return;
+    }
+    if (!color) {
+      return;
+    }
+
     router.dismiss();
   };
   return (
