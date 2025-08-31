@@ -8,8 +8,10 @@ import { Indicator } from '../../src/components/Indicator';
 import * as LabelService from '../../src/services/labelServices';
 
 export default function LabelCreateScreen() {
-  const [labelName, setLabelName] = useState<String>('');
-  const [color, setColor] = useState<String | undefined>(undefined);
+  const [labelName, setLabelName] = useState<string>('');
+  const [color, setColor] = useState<string | undefined>(undefined);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleColorPress = (color: string) => {
     setColor(color);
@@ -25,11 +27,15 @@ export default function LabelCreateScreen() {
       return;
     }
 
+    setIsLoading(true);
+
     try {
       await LabelService.addLable(labelName, color);
       router.dismiss();
     } catch (error) {
       Alert.alert('エラー', 'ラベル作成に失敗しました');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -45,6 +51,7 @@ export default function LabelCreateScreen() {
           <ButtonText>作成</ButtonText>
         </Button>
       </VStack>
+      <Indicator visible={isLoading} />
     </View>
   );
 }
