@@ -4,6 +4,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
 import { ColorPicker } from '../../src/components/ColorPicker';
+import { Indicator } from '../../src/components/Indicator';
 import * as LabelService from '../../src/services/labelServices';
 
 export default function LabelCreateScreen() {
@@ -14,17 +15,24 @@ export default function LabelCreateScreen() {
     setColor(color);
   };
 
-  const handleCreatePress = () => {
+  const handleCreatePress = async () => {
     if (!labelName) {
       Alert.alert('エラー', 'ラベル名を入力してください');
       return;
     }
     if (!color) {
+      Alert.alert('エラー', 'カラーを選択してください');
       return;
     }
 
-    router.dismiss();
+    try {
+      await LabelService.addLable(labelName, color);
+      router.dismiss();
+    } catch (error) {
+      Alert.alert('エラー', 'ラベル作成に失敗しました');
+    }
   };
+
   return (
     <View style={styles.container}>
       <VStack space="lg">
