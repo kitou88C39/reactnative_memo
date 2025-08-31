@@ -121,6 +121,7 @@ export default function MemoListScreen() {
         onPress={handleLabelPress}
         onClose={handleLabelListModalClose}
       />
+      <Indicator visible={isLoading} />
     </View>
   );
 }
