@@ -14,16 +14,27 @@ export default function LabelEditScreen() {
   const [color, setColor] = useState<String | undefined>(undefined);
 
   useEffect(() => {
-    const loadData = async (labelId: string) => {
+    let isMounted = true;
+    const loadData = async (labelId: number) => {
       try {
-        const label = await LabelService.getLabel(Number(labelId));
+        const label = await LabelService.getLabel(labelId);
         if (!label) {
           Alert.alert('エラー', 'ラベルが見つかりません', [{ text: 'OK', onPress: () => router.back() }]);
           return;
         }
         setLabelName(label.name);
         setColor(label.color);
-      } catch (error) {}
+      } catch (error) {
+        Alert.alert('エラー', 'データの取得に失敗しました', [{ text: 'OK', onPress: () => router.back() }]);
+      }
+    };
+    if (isMounted) {
+      const labelId = Number(id);
+      loadData(labelId);
+    }
+
+    return () => {
+      isMounted = false;
     };
   }, [id]);
 
