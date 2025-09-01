@@ -45,6 +45,16 @@ INSERT INTO labels(
   );
 `;
 
+const UpdateLabel = `
+UPDATE labels
+SET
+  name = ?,
+  color = ?,
+  updated_at = DATETIME('now','localtime')
+WHERE
+  id = ?;
+`;
+
 const LabelQueries = Object.freeze({
   CREATE_TABLE: CreateTableLabels,
   SELECT_LABELS: SelectLabels,
