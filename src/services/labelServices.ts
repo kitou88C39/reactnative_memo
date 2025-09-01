@@ -1,7 +1,8 @@
 import { excute as execute, fetch } from '../database/dbService';
 import { LabelQueries } from '../database/queries/labelQueries';
-import { type Label } from '../types/label';
 import { LabelSchema } from '../database/schemas/labelSchemas';
+import { type Label } from '../types/label';
+import { MemoQueries } from '../database/queries/memoQueries';
 
 const createTable = async () => {
   await execute({ sql: LabelQueries.CREATE_TABLE });
@@ -44,7 +45,7 @@ const editLabel = async (id: number, name: string, value: string) => {
 };
 
 const deleteLabel = async (id: number) => {
-  await execute({ sql: LabelQueries.DELETE, params: [id] });
+  await execute({ sql: LabelQueries.DELETE, params: [id] }, { sql: MemoQueries.UPDATE_TARGET_LABEL_ID_TO_NULL, params: [id] });
 };
 
-export { addLabel, createTable, getLabels, getLabel, editLabel };
+export { addLabel, createTable, getLabels, getLabel, editLabel, deleteLabel };
