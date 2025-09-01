@@ -43,7 +43,25 @@ export default function LabelEditScreen() {
   };
 
   const handleEditPress = () => {
-    router.dismiss();
+    if (!labelName) {
+      Alert.alert('エラー', 'ラベル名を入力してください');
+      return;
+    }
+    if (!color) {
+      Alert.alert('エラー', 'カラーを選択してください');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await LabelService.addLable(labelName, color);
+      router.dismiss();
+    } catch (error) {
+      Alert.alert('エラー', 'ラベル作成に失敗しました');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleDeletePress = () => {
