@@ -1,8 +1,8 @@
 //ホーム画面
 import { MaterialIcons } from '@expo/vector-icons';
 import { ListItem } from '@rneui/themed';
-import { router, useNavigation } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { router, useNavigation, useFocusEffect } from 'expo-router';
+import { useEffect, useState, useCallback } from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
 import { type Label } from '../../src/types/label';
@@ -25,6 +25,8 @@ export default function HomeScreen() {
       }
     });
   }, []);
+
+  useFocusEffect(useCallback(() => {}, []));
 
   const handleAllMemoPress = () => {
     setSelectedLabelId(undefined);
