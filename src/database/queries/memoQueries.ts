@@ -110,7 +110,9 @@ const MemoQueries = Object.freeze({
   INSERT: InsertMemo,
   UPDATE: UpdateMemo,
   DELETE: DeleteMemo,
-  UPDATE_TARGET_LABEL_ID_TO_NULL: UpdateMemoTargetLabelIdToNull
+  UPDATE_TARGET_LABEL_ID_TO_NULL: UpdateMemoTargetLabelIdToNull,
+  UPDATE_LABEL_ID_BY_ID: UpdateMemoLabelIdById,
+  UPDATE_LABEL_ID_TO_NULL_BY_ID: UpdateMemoLabelIdToNullById
 });
 
 export { MemoQueries };
