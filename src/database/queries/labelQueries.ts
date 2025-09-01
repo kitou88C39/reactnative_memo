@@ -1,3 +1,5 @@
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+
 const CreateTableLabels = `
 CREATE TABLE IF NOT EXISTS labels
   (
@@ -55,12 +57,19 @@ WHERE
   id = ?;
 `;
 
+const DeleteLabel = `
+DELETE FROM labels
+WHERE
+  id = ?
+`;
+
 const LabelQueries = Object.freeze({
   CREATE_TABLE: CreateTableLabels,
   SELECT_LABELS: SelectLabels,
   SELECT_LABEL_TARGET_ID: SelectLabelTargetId,
   INSERT: InsertLabel,
-  UPDATE: UpdataLabel
+  UPDATE: UpdataLabel,
+  DELETE: DeleteLabel
 });
 
 export { LabelQueries };
