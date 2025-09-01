@@ -10,8 +10,8 @@ import * as LabelService from '../../src/services/labelServices';
 export default function LabelEditScreen() {
   const { id } = useLocalSearchParams();
 
-  const [labelName, setLabelName] = useState<String>('');
-  const [color, setColor] = useState<String | undefined>(undefined);
+  const [labelName, setLabelName] = useState<string>('');
+  const [color, setColor] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     let isMounted = true;
@@ -54,9 +54,9 @@ export default function LabelEditScreen() {
     <View style={styles.container}>
       <VStack space="lg">
         <Input variant="underlined" size="md" backgroundColor="$white" borderBlockColor="$warmGray400">
-          <InputField padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
+          <InputField defaultValue={labelName} padding={'$2'} placeholder="ラベル名" onChangeText={setLabelName} />
         </Input>
-        <ColorPicker onPress={handleColorPress} />
+        <ColorPicker onPress={handleColorPress} defaultColor={color} />
 
         <VStack space="md">
           <Button size="md" action="primary" marginHorizontal={'$4'} onPress={handleEditPress}>
