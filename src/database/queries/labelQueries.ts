@@ -47,7 +47,8 @@ INSERT INTO labels(
 
 const LabelQueries = Object.freeze({
   CREATE_TABLE: CreateTableLabels,
-  SelectLabels: SelectLabels,
+  SELECT_LABELS: SelectLabels,
+  SELECT_LABEL_TARGET_ID: SelectLabelTargetId,
   INSERT: InsertLabel
 });
 
