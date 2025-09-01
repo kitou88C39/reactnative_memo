@@ -31,8 +31,8 @@ const SelectLabelTargetId = `
     updated_at
   FROM
     labels
-  ORDER BY
-    updated_at ASC;
+  WHERE
+    id = ?
 `;
 
 const InsertLabel = `
