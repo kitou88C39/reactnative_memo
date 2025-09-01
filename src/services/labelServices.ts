@@ -43,4 +43,8 @@ const editLabel = async (id: number, name: string, value: string) => {
   await execute({ sql: LabelQueries.UPDATE, params: [name, value, id] });
 };
 
+const deleteLabel = async (id: number) => {
+  await execute({ sql: LabelQueries.DELETE, params: [id] });
+};
+
 export { addLabel, createTable, getLabels, getLabel, editLabel };
