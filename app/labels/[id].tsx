@@ -4,6 +4,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
 import { ColorPicker } from '../../src/components/ColorPicker';
+import { Indicator } from '../../src/components/Indicator';
 
 import * as LabelService from '../../src/services/labelServices';
 
@@ -42,7 +43,7 @@ export default function LabelEditScreen() {
     setColor(color);
   };
 
-  const handleEditPress = () => {
+  const handleEditPress = async () => {
     if (!labelName) {
       Alert.alert('エラー', 'ラベル名を入力してください');
       return;
@@ -55,10 +56,10 @@ export default function LabelEditScreen() {
     setIsLoading(true);
 
     try {
-      await LabelService.addLable(labelName, color);
+      await LabelService.editLable(Number(id), labelName, color);
       router.dismiss();
     } catch (error) {
-      Alert.alert('エラー', 'ラベル作成に失敗しました');
+      Alert.alert('エラー', 'ラベル修正に失敗しました');
     } finally {
       setIsLoading(false);
     }
