@@ -24,4 +24,4 @@ const addLable = async (name: string, value: string) => {
   await execute({ sql: LabelQueries.INSERT, params: [name, value] });
 };
 
-export { addLable, createTable };
+export { addLable, createTable, getLabels };

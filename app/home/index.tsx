@@ -2,14 +2,19 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { ListItem } from '@rneui/themed';
 import { router, useNavigation } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
+import { type Label } from '../../src/types/label';
+
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
+
 export default function HomeScreen() {
   const navigation = useNavigation();
+
+  const [labels, setLabels] = useState<Label[]>([]);
 
   const [selectedLabelId, setSelectedLabelId] = useRecoilState(selectedLabelIdState);
 
