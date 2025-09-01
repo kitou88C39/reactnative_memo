@@ -85,6 +85,15 @@ const UpdateMemoTargetLabelIdToNull = `
     label_id = ?;
 `;
 
+const UpdateMemoLabelIdById = `
+  UPDATE memos
+  SET
+    label_id = ?,
+    updated_at = DATETIME('now','localtime')
+  WHERE
+    id = ?;
+`;
+
 const MemoQueries = Object.freeze({
   CREATE_TABLE: CreateTableMemos,
   SELECT: SelectMemos,
