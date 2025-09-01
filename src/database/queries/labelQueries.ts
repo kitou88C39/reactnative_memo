@@ -22,6 +22,19 @@ const SelectLabels = `
     updated_at ASC;
 `;
 
+const SelectLabelTargetId = `
+  SELECT
+    id,
+    name,
+    color,
+    created_at,
+    updated_at
+  FROM
+    labels
+  ORDER BY
+    updated_at ASC;
+`;
+
 const InsertLabel = `
 INSERT INTO labels(
   name,
