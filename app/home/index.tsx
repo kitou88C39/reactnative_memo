@@ -9,7 +9,7 @@ import { type Label } from '../../src/types/label';
 
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
-import { LABEL_DATA } from '../../src/dummy_data/labelData';
+
 import * as LabelService from '../../src/services/labelServices';
 
 export default function HomeScreen() {
@@ -37,6 +37,7 @@ export default function HomeScreen() {
           Alert.alert('エラー', 'ラベルの取得に失敗しました', [{ text: 'OK' }]);
         }
       };
+
       loadData();
     }, [])
   );
@@ -71,7 +72,7 @@ export default function HomeScreen() {
 
         <Text style={styles.sectionText}>ラベル</Text>
 
-        {LABEL_DATA.map(item => (
+        {labels.map(item => (
           <LabelListItem
             key={item.id}
             color={item.color}
