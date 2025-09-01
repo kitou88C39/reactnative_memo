@@ -30,7 +30,7 @@ export default function LabelCreateScreen() {
     setIsLoading(true);
 
     try {
-      await LabelService.addLable(labelName, color);
+      await LabelService.addLabel(labelName, color);
       router.dismiss();
     } catch (error) {
       Alert.alert('エラー', 'ラベル作成に失敗しました');

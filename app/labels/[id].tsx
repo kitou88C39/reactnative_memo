@@ -13,6 +13,7 @@ export default function LabelEditScreen() {
 
   const [labelName, setLabelName] = useState<string>('');
   const [color, setColor] = useState<string | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -56,7 +57,7 @@ export default function LabelEditScreen() {
     setIsLoading(true);
 
     try {
-      await LabelService.editLable(Number(id), labelName, color);
+      await LabelService.editLabel(Number(id), labelName, color);
       router.dismiss();
     } catch (error) {
       Alert.alert('エラー', 'ラベル修正に失敗しました');
@@ -86,6 +87,7 @@ export default function LabelEditScreen() {
             <ButtonText>削除</ButtonText>
           </Button>
         </VStack>
+        <Indicator visible={isLoading} />
       </VStack>
     </View>
   );

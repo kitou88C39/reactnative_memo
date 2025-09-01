@@ -35,7 +35,7 @@ const getLabel = async (labelId: number): Promise<Label | undefined> => {
   };
 };
 
-const addLable = async (name: string, value: string) => {
+const addLabel = async (name: string, value: string) => {
   await execute({ sql: LabelQueries.INSERT, params: [name, value] });
 };
 
@@ -43,4 +43,4 @@ const editLabel = async (id: number, name: string, value: string) => {
   await execute({ sql: LabelQueries.UPDATE, params: [name, value, id] });
 };
 
-export { addLable, createTable, getLabels, getLabel, editLabel };
+export { addLabel, createTable, getLabels, getLabel, editLabel };
