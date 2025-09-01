@@ -3,13 +3,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { ListItem } from '@rneui/themed';
 import { router, useNavigation, useFocusEffect } from 'expo-router';
 import { useEffect, useState, useCallback } from 'react';
-import { ScrollView, StyleSheet, View, Text } from 'react-native';
+import { ScrollView, StyleSheet, View, Text, Alert } from 'react-native';
 import { LabelListItem } from '../../src/components/LabelListitem';
 import { type Label } from '../../src/types/label';
 
 import { useRecoilState } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
 import { LABEL_DATA } from '../../src/dummy_data/labelData';
+import * as LabelService from '../../src/services/labelServices';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -26,7 +27,19 @@ export default function HomeScreen() {
     });
   }, []);
 
-  useFocusEffect(useCallback(() => {}, []));
+  useFocusEffect(
+    useCallback(() => {
+      const loadData = async () => {
+        try {
+          const labels = await LabelService.getLabels();
+          setLabels(labels);
+        } catch (error) {
+          Alert.alert('エラー', 'ラベルの取得に失敗しました', [{ text: 'OK' }]);
+        }
+      };
+      loadData();
+    }, [])
+  );
 
   const handleAllMemoPress = () => {
     setSelectedLabelId(undefined);
