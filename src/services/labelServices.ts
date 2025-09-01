@@ -28,7 +28,6 @@ const getLabel = async (labelId: number): Promise<Label | undefined> => {
   }
 
   const row = rows[0];
-
   return {
     id: row.id,
     name: row.name,
@@ -40,4 +39,4 @@ const addLable = async (name: string, value: string) => {
   await execute({ sql: LabelQueries.INSERT, params: [name, value] });
 };
 
-export { addLable, createTable, getLabels };
+export { addLable, createTable, getLabels, getLabel };
