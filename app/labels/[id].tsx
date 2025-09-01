@@ -16,11 +16,13 @@ export default function LabelEditScreen() {
   useEffect(() => {
     const loadData = async (labelId: string) => {
       try {
-        const label = await LabelService.getLabel(labelId);
+        const label = await LabelService.getLabel(Number(labelId));
         if (!label) {
           Alert.alert('エラー', 'ラベルが見つかりません', [{ text: 'OK', onPress: () => router.back() }]);
           return;
         }
+        setLabelName(label.name);
+        setColor(label.color);
       } catch (error) {}
     };
   }, [id]);
