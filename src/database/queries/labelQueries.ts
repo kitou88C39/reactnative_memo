@@ -45,7 +45,7 @@ INSERT INTO labels(
   );
 `;
 
-const UpdateLabel = `
+const UpdataLabel = `
 UPDATE labels
 SET
   name = ?,
@@ -59,7 +59,8 @@ const LabelQueries = Object.freeze({
   CREATE_TABLE: CreateTableLabels,
   SELECT_LABELS: SelectLabels,
   SELECT_LABEL_TARGET_ID: SelectLabelTargetId,
-  INSERT: InsertLabel
+  INSERT: InsertLabel,
+  UPDATE: UpdataLabel
 });
 
 export { LabelQueries };
