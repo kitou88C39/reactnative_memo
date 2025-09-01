@@ -1,16 +1,19 @@
 //ラベル修正画面
-import { Input, InputField, VStack } from '@gluestack-ui/themed';
+import { Button, ButtonText, Input, InputField, VStack } from '@gluestack-ui/themed';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ColorPicker } from '../../src/components/ColorPicker';
-import { Button, ButtonText } from '@gluestack-ui/themed';
+
+import * as LabelService from '../../src/services/labelServices';
 
 export default function LabelEditScreen() {
   const { id } = useLocalSearchParams();
 
   const [labelName, setLabelName] = useState<String>('');
   const [color, setColor] = useState<String | undefined>(undefined);
+
+  useEffect(() => {}, [id]);
 
   const handleColorPress = (color: string) => {
     setColor(color);
