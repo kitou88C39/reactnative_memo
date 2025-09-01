@@ -2,7 +2,7 @@
 import { Button, ButtonText, Input, InputField, VStack } from '@gluestack-ui/themed';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import { ColorPicker } from '../../src/components/ColorPicker';
 
 import * as LabelService from '../../src/services/labelServices';
@@ -13,7 +13,17 @@ export default function LabelEditScreen() {
   const [labelName, setLabelName] = useState<String>('');
   const [color, setColor] = useState<String | undefined>(undefined);
 
-  useEffect(() => {}, [id]);
+  useEffect(() => {
+    const loadData = async (labelId: string) => {
+      try {
+        const label = await LabelService.getLabel(labelId);
+        if (!label) {
+          Alert.alert('エラー', 'ラベルが見つかりません', [{ text: 'OK', onPress: () => router.back() }]);
+          return;
+        }
+      } catch (error) {}
+    };
+  }, [id]);
 
   const handleColorPress = (color: string) => {
     setColor(color);
