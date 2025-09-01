@@ -9,7 +9,7 @@ import { MemoListItem } from '../../src/components/MemoListitem';
 import { type Label } from '../../src/types/label';
 import { type Memo } from '../../src/types/memo';
 import * as MemoServices from '../../src/services/memoServices';
-import * as LabelServices from '../../src/services';
+import * as LabelServices from '../../src/services/labelServices';
 import { Indicator } from '../../src/components/Indicator';
 
 import { useRecoilValue } from 'recoil';
