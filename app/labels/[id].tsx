@@ -67,7 +67,16 @@ export default function LabelEditScreen() {
   };
 
   const handleDeletePress = () => {
-    router.dismiss();
+    setIsLoading(true);
+
+    try {
+      await LabelService.editLabel(Number(id), labelName, color);
+      router.dismiss();
+    } catch (error) {
+      Alert.alert('エラー', 'ラベル修正に失敗しました');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
