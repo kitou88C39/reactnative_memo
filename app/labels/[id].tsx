@@ -67,16 +67,28 @@ export default function LabelEditScreen() {
   };
 
   const handleDeletePress = () => {
-    setIsLoading(true);
+    const deleteLabel = async () => {
+      setIsLoading(true);
 
-    try {
-      await LabelService.editLabel(Number(id), labelName, color);
-      router.dismiss();
-    } catch (error) {
-      Alert.alert('エラー', 'ラベル修正に失敗しました');
-    } finally {
-      setIsLoading(false);
-    }
+      try {
+        await LabelService.deleteLabel(Number(id));
+        router.dismiss();
+      } catch (error) {
+        Alert.alert('エラー', 'ラベル削除に失敗しました');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    Alert.alert('確認', 'ラベル削除しますか？', [
+      {
+        text: 'キャンセル',
+        style: 'cancel'
+      },
+      {
+        text: '削除',
+        onPress: deleteLabel
+      }
+    ]);
   };
 
   return (
