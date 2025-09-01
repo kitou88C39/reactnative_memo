@@ -8,7 +8,7 @@ const createTable = async () => {
 };
 
 const getLabels = async () => {
-  const rows = await fetch<LabelSchema>({ sql: LabelQueries.SelectLabels });
+  const rows = await fetch<LabelSchema>({ sql: LabelQueries.SELECT_LABELS });
 
   const labels = rows.map((row): Label => {
     return {
