@@ -9,12 +9,11 @@ import { MemoListItem } from '../../src/components/MemoListitem';
 import { type Label } from '../../src/types/label';
 import { type Memo } from '../../src/types/memo';
 import * as MemoServices from '../../src/services/memoServices';
+import * as LabelServices from '../../src/services';
 import { Indicator } from '../../src/components/Indicator';
 
 import { useRecoilValue } from 'recoil';
 import { selectedLabelIdState } from '../../src/recoils/selectedLabelIdState';
-
-import { LABEL_DATA } from '../../src/dummy_data/labelData';
 
 // アプリ起動時の画面
 export default function MemoListScreen() {
@@ -40,7 +39,7 @@ export default function MemoListScreen() {
     useCallback(() => {
       const loadData = async (labelId: number | undefined) => {
         try {
-          const labels = LABEL_DATA;
+          const labels = await LabelServices.getLabels();
           setLabels(labels);
           const memos = await MemoServices.getMemos();
           const filteredMemos = labelId ? memos.filter(memo => memo.labelId === selectedLabelId) : memos;
