@@ -1,8 +1,9 @@
+import * as Crypto from 'expo-crypto';
 import { excute as execute, fetch } from '../database/dbService';
 import { MemoQueries } from '../database/queries/memoQueries';
-import * as Crypto from 'expo-crypto';
-import { type Memo } from '../types/memo';
 import { MemoSchema } from '../database/schemas/memoSchemas';
+import { type Memo } from '../types/memo';
+import { type SqlArg } from '../database/dbService';
 
 const createTable = async () => {
   await execute({ sql: MemoQueries.CREATE_TABLE });
@@ -39,7 +40,11 @@ const getMemo = async (memoId: string): Promise<Memo | undefined> => {
 
 const addMemo = async (labelId: number | undefined, title: string, content: string) => {
   const memoId = Crypto.randomUUID();
-  await execute({ sql: MemoQueries.INSERT, params: [memoId, title, content] });
+  let queries: SqlArg[] = [];
+
+  queries.push({ sql: MemoQueries.INSERT, params: [memoId, title, content] });
+
+  await execute();
 };
 
 const editMemo = async (memoId: string, title: string, content: string) => {
