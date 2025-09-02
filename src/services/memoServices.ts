@@ -58,4 +58,4 @@ const setLabel = async (memoId: string, labelId: number | undefined) => {
   await execute({ sql: MemoQueries.UPDATE_LABEL_ID_BY_ID, params: [labelId, memoId] });
 };
 
-export { addMemo, createTable, editMemo, getMemos, getMemo, deleteMemo };
+export { addMemo, createTable, editMemo, getMemos, getMemo, deleteMemo, setLabel };
