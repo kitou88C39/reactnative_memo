@@ -79,12 +79,22 @@ export default function MemoListScreen() {
     }
   };
 
-  const handleLabelPress = (labelId?: number) => {
-    console.log('ラベルが選択されました', labelId);
+  const handleLabelPress = async (labelId?: number) => {
+    if (selectedMemoId === labelId) {
+      return;
+    }
+
+    try {
+      await MemoServices.setLabel(selectedMemoId, labelId);
+      const memos = await MemoServices.getMemos();
+      setMemos(memos);
+    } catch (error) {}
+
     setIsLabelListModalVisible(false);
   };
 
   const handleLabelListModalClose = () => {
+    setSelectedMemoId(undefined);
     setIsLabelListModalVisible(false);
   };
 
