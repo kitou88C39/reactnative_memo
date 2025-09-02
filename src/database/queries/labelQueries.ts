@@ -82,7 +82,8 @@ const LabelQueries = Object.freeze({
   SELECT_LABEL_TARGET_ID: SelectLabelTargetId,
   INSERT: InsertLabel,
   UPDATE: UpdataLabel,
-  DELETE: DeleteLabel
+  DELETE: DeleteLabel,
+  RESETSEQUENCE: ResetSequence
 });
 
 export { LabelQueries };
