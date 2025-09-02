@@ -44,7 +44,11 @@ const addMemo = async (labelId: number | undefined, title: string, content: stri
 
   queries.push({ sql: MemoQueries.INSERT, params: [memoId, title, content] });
 
-  await execute();
+  if (labelId !== undefined) {
+    queries.push({ sql: MemoQueries.UPDATE_LABEL_ID_BY_ID, params: [labelId, memoId] });
+  }
+
+  await execute(...queries);
 };
 
 const editMemo = async (memoId: string, title: string, content: string) => {

@@ -37,7 +37,7 @@ export default function MemoCreateScreen() {
     setIsLoading(true);
 
     try {
-      await MemoService.addMemo(title, content);
+      await MemoService.addMemo(selectedLabelId, title, content);
       router.back();
     } catch {
       Alert.alert('エラー', 'タイトルを入力してください');
