@@ -37,7 +37,7 @@ const getMemo = async (memoId: string): Promise<Memo | undefined> => {
   };
 };
 
-const addMemo = async (title: string, content: string) => {
+const addMemo = async (labelId: number | undefined, title: string, content: string) => {
   const memoId = Crypto.randomUUID();
   await execute({ sql: MemoQueries.INSERT, params: [memoId, title, content] });
 };

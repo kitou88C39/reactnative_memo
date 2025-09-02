@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 import * as FileSystem from 'expo-file-system';
 
-type SqlArg = {
+export type SqlArg = {
   sql: string;
   params?: (string | number)[];
 };
