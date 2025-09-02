@@ -15,6 +15,9 @@ export default function InitialScreen() {
     try {
       await LabelService.createTable();
       await MemoService.createTable();
+
+      await initalDatabase();
+
       router.replace('/home');
     } catch (error) {
       console.log('アプリの起動に失敗しました', error);
@@ -27,6 +30,8 @@ export default function InitialScreen() {
     const labels = await LabelService.getLabels();
 
     if (!memos.length && !labels.length) {
+      await LabelService.resetSequence();
+
       for (const key in InitialLabelData) {
         await LabelService.addLabel(InitialLabelData[key].name, InitialLabelData[key].color);
       }
