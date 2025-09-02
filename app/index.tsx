@@ -22,7 +22,16 @@ export default function InitialScreen() {
     }
   };
 
-  initApp();
+  const initalDatabase = async () => {
+    const memos = await MemoService.getMemos();
+    const labels = await LabelService.getLabels();
+
+    if (!memos.length && !labels.length) {
+      for (const key in InitialLabelData) {
+        await LabelService.addLabel(InitialLabelData[key].name, InitialLabelData[key].color);
+      }
+    }
+  };
 
   return (
     <View style={styles.container}>
