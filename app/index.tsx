@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
 import * as LabelService from '../src/services/labelServices';
 import * as MemoService from '../src/services/memoServices';
+import InitialLabelData from '../src/database/data/initialLabelData.json';
+import InitialMemoData from '../src/database/data/initialMemoData.json';
 
 export default function InitialScreen() {
   useEffect(() => {
