@@ -23,10 +23,10 @@ export default function MemoListScreen() {
   const [labels, setLabels] = useState<Label[]>([]);
   const [memos, setMemos] = useState<Memo[]>([]);
   const selectedLabel = labels.find(label => label.id === selectedLabelId);
-  const [selectedMemoId, setSelectedMemoId] = useState() as MemoId;
+  const [selectedMemoId, setSelectedMemoId] = useState<string | undefined>(undefined);
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState<string | undefined>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     navigation.setOptions({
@@ -57,11 +57,11 @@ export default function MemoListScreen() {
     router.push({ pathname: '/memos/create' });
   };
 
-  const handleMemoPress = (memoId: String) => {
+  const handleMemoPress = (memoId: string) => {
     router.push({ pathname: `/memos/${memoId}` });
   };
 
-  const handleMemoLongPress = (memoId: String) => {
+  const handleMemoLongPress = (memoId: string) => {
     setSelectedMemoId(memoId);
     setIsLabelListModalVisible(true);
   };
@@ -87,6 +87,7 @@ export default function MemoListScreen() {
     setIsLoading(true);
 
     try {
+      if (!selectedMemoId) return;
       await MemoServices.setLabel(selectedMemoId, labelId);
 
       const memos = await MemoServices.getMemos();
