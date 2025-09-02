@@ -23,9 +23,10 @@ export default function MemoListScreen() {
   const [labels, setLabels] = useState<Label[]>([]);
   const [memos, setMemos] = useState<Memo[]>([]);
   const selectedLabel = labels.find(label => label.id === selectedLabelId);
+  const [selectedMemoId, setSelectedMemoId] = useState() as MemoId;
 
   const [isLabelListModalVisible, setIsLabelListModalVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<string | undefined>();
 
   useEffect(() => {
     navigation.setOptions({
@@ -61,7 +62,7 @@ export default function MemoListScreen() {
   };
 
   const handleMemoLongPress = (memoId: String) => {
-    console.log('メモが長押しされました', memoId);
+    setSelectedMemoId(memoId);
     setIsLabelListModalVisible(true);
   };
 
