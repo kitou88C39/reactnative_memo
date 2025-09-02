@@ -31,11 +31,7 @@ export default function InitialScreen() {
         await LabelService.addLabel(InitialLabelData[key].name, InitialLabelData[key].color);
       }
       for (const key in InitialMemoData) {
-        await MemoService.addMemo(
-          InitialMemoData[key].labelId,
-          InitialMemoData[key].title,
-          InitialMemoData[key].content
-        );
+        await MemoService.addMemo(InitialMemoData[key].labelId, InitialMemoData[key].title, InitialMemoData[key].content);
       }
     }
   };
