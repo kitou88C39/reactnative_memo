@@ -30,6 +30,13 @@ export default function InitialScreen() {
       for (const key in InitialLabelData) {
         await LabelService.addLabel(InitialLabelData[key].name, InitialLabelData[key].color);
       }
+      for (const key in InitialMemoData) {
+        await MemoService.addMemo(
+          InitialMemoData[key].labelId,
+          InitialMemoData[key].title,
+          InitialMemoData[key].content
+        );
+      }
     }
   };
 
