@@ -63,6 +63,12 @@ WHERE
   id = ?
 `;
 
+const ResetSequence = `
+UPDATE sqlite_sequence
+SET seq = 0 
+WHERE name = 'labels';
+`;
+
 const LabelQueries = Object.freeze({
   CREATE_TABLE: CreateTableLabels,
   SELECT_LABELS: SelectLabels,
