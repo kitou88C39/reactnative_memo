@@ -84,13 +84,21 @@ export default function MemoListScreen() {
       return;
     }
 
+    setIsLoading(true);
+
     try {
       await MemoServices.setLabel(selectedMemoId, labelId);
+
       const memos = await MemoServices.getMemos();
       setMemos(memos);
-    } catch (error) {}
 
-    setIsLabelListModalVisible(false);
+      setSelectedMemoId(selectedMemoId);
+      setIsLabelListModalVisible(false);
+    } catch (error) {
+      Alert.alert('エラー', 'ラベル設定に失敗しました', [{ text: 'OK' }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleLabelListModalClose = () => {
